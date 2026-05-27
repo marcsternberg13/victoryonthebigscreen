@@ -5,1936 +5,543 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Victory on the Big Screen — Son of a Botanist Productions</title>
 <meta name="description" content="A three-project slate honoring the art and life of Cherokee-Choctaw painter Poteet Victory. Feature film, prestige docuseries, and immersive art experience.">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Cinzel:wght@400;500;600;700;900&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
-
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --burgundy:     #5C1A0E;
-  --burgundy-mid: #7A2510;
-  --burgundy-lt:  #9E3318;
-  --rust:         #B44820;
-  --gold:         #C8922A;
-  --gold-lt:      #E8B84A;
-  --gold-dim:     #8A6218;
-  --cream:        #F4EAD8;
-  --cream-dim:    #CFC0A0;
-  --teal:         #1F4145;
-  --teal-lt:      #2D5C62;
-  --teal-bright:  #3A8898;
-  --ink:          #0A0604;
-  --dark:         #100804;
-  --dark-mid:     #1A1008;
-  --dark-lt:      #241808;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Lato', sans-serif;
-  background: var(--ink);
-  color: var(--cream);
-  overflow-x: hidden;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 60px;
-  background: rgba(10, 6, 4, 0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(200, 146, 42, 0.15);
-  transition: background 0.3s;
-}
-
-.nav-brand {
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 4px;
-  color: var(--gold-dim);
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  gap: 36px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-family: 'Lato', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--cream-dim);
-  text-decoration: none;
-  opacity: 0.65;
-  transition: opacity 0.2s, color 0.2s;
-}
-
-.nav-links a:hover { opacity: 1; color: var(--gold); }
-
-.nav-cta {
-  font-family: 'Cinzel', serif;
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  text-decoration: none;
-  border: 1px solid rgba(200, 146, 42, 0.4);
-  padding: 8px 20px;
-  transition: all 0.2s;
-}
-
-.nav-cta:hover {
-  background: rgba(200, 146, 42, 0.12);
-  border-color: var(--gold);
-}
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 120px 60px 80px;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 60% 30%, rgba(92, 26, 14, 0.45) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 70% at 10% 80%, rgba(31, 65, 69, 0.30) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 50% at 85% 70%, rgba(31, 65, 69, 0.20) 0%, transparent 55%),
-    linear-gradient(180deg, #0A0604 0%, #160A04 40%, #1A0E06 70%, #0A0604 100%);
-  z-index: 0;
-}
-
-.hero-grain {
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  opacity: 0.4;
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 900px;
-}
-
-.hero-eyebrow {
-  font-family: 'Cinzel', serif;
-  font-size: 9px;
-  letter-spacing: 6px;
-  color: var(--gold-dim);
-  text-transform: uppercase;
-  margin-bottom: 28px;
-  opacity: 0.8;
-}
-
-.hero-eyebrow span {
-  display: inline-block;
-  width: 40px;
-  height: 1px;
-  background: var(--gold-dim);
-  vertical-align: middle;
-  margin: 0 16px;
-  opacity: 0.5;
-}
-
-.hero-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(72px, 12vw, 130px);
-  font-weight: 900;
-  color: var(--cream);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  line-height: 0.9;
-  margin-bottom: 16px;
-}
-
-.hero-title-sub {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(12px, 2vw, 18px);
-  font-weight: 400;
-  color: var(--gold);
-  letter-spacing: 0.6em;
-  text-transform: uppercase;
-  margin-bottom: 40px;
-}
-
-.hero-rule {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.hero-rule-line {
-  width: 80px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-dim));
-}
-
-.hero-rule-line.r { background: linear-gradient(90deg, var(--gold-dim), transparent); }
-
-.hero-diamond {
-  width: 6px; height: 6px;
-  background: var(--gold);
-  transform: rotate(45deg);
-}
-
-.hero-tagline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2.5vw, 26px);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--cream);
-  line-height: 1.5;
-  max-width: 700px;
-  margin: 0 auto 48px;
-  opacity: 0.85;
-}
-
-.hero-subtitle {
-  font-family: 'Lato', sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--cream-dim);
-  opacity: 0.55;
-  margin-bottom: 56px;
-}
-
-.hero-nav-pills {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.pill {
-  font-family: 'Cinzel', serif;
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  padding: 12px 28px;
-  border: 1px solid;
-  text-decoration: none;
-  transition: all 0.25s;
-  cursor: pointer;
-}
-
-.pill-primary {
-  color: var(--ink);
-  background: var(--gold);
-  border-color: var(--gold);
-}
-
-.pill-primary:hover {
-  background: var(--gold-lt);
-  border-color: var(--gold-lt);
-}
-
-.pill-outline {
-  color: var(--cream-dim);
-  background: transparent;
-  border-color: rgba(207, 192, 160, 0.3);
-}
-
-.pill-outline:hover {
-  color: var(--cream);
-  border-color: rgba(207, 192, 160, 0.7);
-  background: rgba(207, 192, 160, 0.05);
-}
-
-.hero-scroll {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  opacity: 0.35;
-  animation: scrollBob 2s ease-in-out infinite;
-}
-
-@keyframes scrollBob {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(6px); }
-}
-
-.hero-scroll-text {
-  font-family: 'Cinzel', serif;
-  font-size: 8px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-}
-
-.hero-scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(180deg, var(--gold-dim), transparent);
-}
-
-/* ── SECTION HEADERS ── */
-.section-header {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.section-eyebrow {
-  font-family: 'Cinzel', serif;
-  font-size: 9px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  opacity: 0.7;
-  display: block;
-  margin-bottom: 16px;
-}
-
-.section-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 700;
-  color: var(--cream);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  line-height: 1.0;
-}
-
-.section-subtitle {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(16px, 2vw, 22px);
-  font-style: italic;
-  color: var(--gold);
-  margin-top: 12px;
-  line-height: 1.4;
-}
-
-/* ── DIVIDER ── */
-.divider {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin: 0 auto 80px;
-  max-width: 400px;
-}
-
-.divider-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(200, 146, 42, 0.3));
-}
-
-.divider-line.r { background: linear-gradient(90deg, rgba(200, 146, 42, 0.3), transparent); }
-
-.divider-diamond {
-  width: 5px; height: 5px;
-  background: var(--gold-dim);
-  transform: rotate(45deg);
-  opacity: 0.5;
-}
-
-/* ── SUBJECT SECTION ── */
-.subject-section {
-  padding: 120px 60px;
-  position: relative;
-  background: linear-gradient(180deg, var(--ink) 0%, #160A04 50%, var(--ink) 100%);
-}
-
-.subject-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.subject-body p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  line-height: 1.7;
-  color: var(--cream);
-  opacity: 0.85;
-  margin-bottom: 20px;
-}
-
-.subject-body p strong {
-  color: var(--gold);
-  font-weight: 600;
-}
-
-.subject-body p em {
-  font-style: italic;
-  color: var(--cream);
-  opacity: 1;
-}
-
-.subject-quote {
-  background: rgba(92, 26, 14, 0.12);
-  border-left: 3px solid var(--burgundy-lt);
-  padding: 32px 32px 32px 40px;
-  position: relative;
-  margin-top: 40px;
-}
-
-.subject-quote::before {
-  content: '\201C';
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 80px;
-  color: var(--burgundy-lt);
-  opacity: 0.3;
-  position: absolute;
-  top: -10px; left: 12px;
-  line-height: 1;
-}
-
-.subject-quote-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-style: italic;
-  color: var(--cream);
-  line-height: 1.6;
-  padding-left: 28px;
-}
-
-.subject-quote-text strong { color: var(--gold); font-style: normal; }
-
-.subject-quote-attr {
-  font-family: 'Lato', sans-serif;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  opacity: 0.6;
-  margin-top: 12px;
-  padding-left: 28px;
-}
-
-.honor-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.honor-card {
-  background: rgba(200, 146, 42, 0.05);
-  border: 1px solid rgba(200, 146, 42, 0.18);
-  padding: 20px 24px;
-}
-
-.honor-label {
-  font-family: 'Cinzel', serif;
-  font-size: 8px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  opacity: 0.6;
-  margin-bottom: 6px;
-}
-
-.honor-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--cream);
-  line-height: 1.3;
-}
-
-/* ── TIMELINE ── */
-.timeline-section {
-  padding: 80px 60px 120px;
-  position: relative;
-  background: linear-gradient(180deg, var(--ink) 0%, #12090A 100%);
-}
-
-.timeline-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.timeline-spine {
-  position: absolute;
-  left: 50%;
-  top: 0; bottom: 0;
-  width: 2px;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, var(--burgundy-lt), var(--gold), var(--teal-lt), var(--gold));
-  opacity: 0.3;
-}
-
-.tl-item {
-  display: grid;
-  grid-template-columns: 1fr 44px 1fr;
-  align-items: start;
-  margin-bottom: 48px;
-  position: relative;
-}
-
-.tl-left { text-align: right; padding-right: 28px; padding-top: 4px; }
-.tl-right { padding-left: 28px; }
-
-.tl-callout {
-  display: inline-block;
-  background: rgba(200, 146, 42, 0.07);
-  border: 1px solid rgba(200, 146, 42, 0.2);
-  border-radius: 20px;
-  padding: 5px 14px;
-}
-
-.tl-callout-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px;
-  font-style: italic;
-  color: var(--cream-dim);
-  line-height: 1.3;
-}
-
-.tl-callout-text strong {
-  font-style: normal;
-  font-weight: 700;
-  color: var(--gold);
-}
-
-.tl-dot-wrap {
-  display: flex;
-  justify-content: center;
-  padding-top: 4px;
-}
-
-.tl-dot {
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  border: 2px solid var(--gold);
-  background: var(--dark);
-  position: relative;
-  z-index: 2;
-}
-
-.tl-dot.rust { border-color: var(--burgundy-lt); background: rgba(92, 26, 14, 0.3); }
-.tl-dot.teal { border-color: var(--teal-bright); background: rgba(31, 65, 69, 0.3); }
-
-.tl-year {
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--gold);
-  letter-spacing: 2px;
-  margin-bottom: 3px;
-}
-
-.tl-event {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--cream);
-  line-height: 1.2;
-  margin-bottom: 4px;
-}
-
-.tl-event em { color: var(--cream-dim); font-weight: 400; }
-.tl-event.gold-txt { color: var(--gold); }
-.tl-event.teal-txt { color: #8ABCC4; }
-
-.tl-desc {
-  font-family: 'Lato', sans-serif;
-  font-size: 12px;
-  font-weight: 300;
-  color: rgba(244, 234, 216, 0.45);
-  line-height: 1.5;
-  max-width: 320px;
-}
-
-/* ── FEATURE FILM SECTION ── */
-.film-section {
-  padding: 120px 60px;
-  position: relative;
-  background: linear-gradient(180deg, #12090A 0%, #200E06 40%, #180A04 100%);
-  overflow: hidden;
-}
-
-.film-bg-accent {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 70% 50% at 75% 40%, rgba(92, 26, 14, 0.25) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 60% at 15% 60%, rgba(180, 72, 32, 0.12) 0%, transparent 55%);
-  pointer-events: none;
-}
-
-.film-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.project-badge {
-  font-family: 'Cinzel', serif;
-  font-size: 8px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--burgundy-lt);
-  opacity: 0.8;
-  margin-bottom: 8px;
-}
-
-.film-title-block {
-  margin-bottom: 60px;
-}
-
-.film-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(60px, 10vw, 120px);
-  font-weight: 900;
-  color: var(--cream);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  line-height: 0.9;
-  margin-bottom: 20px;
-}
-
-.film-format-row {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-}
-
-.format-tag {
-  font-family: 'Lato', sans-serif;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border: 1px solid;
-}
-
-.format-tag.primary { color: var(--gold); border-color: rgba(200, 146, 42, 0.4); }
-.format-tag.alt { color: var(--cream-dim); border-color: rgba(207, 192, 160, 0.2); opacity: 0.5; }
-
-.film-tagline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(20px, 2.5vw, 28px);
-  font-style: italic;
-  color: var(--cream);
-  line-height: 1.45;
-  max-width: 700px;
-  margin-bottom: 32px;
-}
-
-.film-body-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  line-height: 1.75;
-  color: var(--cream);
-  opacity: 0.75;
-  max-width: 680px;
-  margin-bottom: 20px;
-}
-
-.film-pillars {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 60px;
-  margin-bottom: 60px;
-  border: 1px solid rgba(200, 146, 42, 0.15);
-}
-
-.pillar {
-  padding: 36px 32px;
-  background: rgba(200, 146, 42, 0.04);
-  border-right: 1px solid rgba(200, 146, 42, 0.1);
-  position: relative;
-}
-
-.pillar:last-child { border-right: none; }
-
-.pillar::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--burgundy-lt);
-  opacity: 0.5;
-}
-
-.pillar-label {
-  font-family: 'Cinzel', serif;
-  font-size: 8px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  opacity: 0.65;
-  margin-bottom: 12px;
-}
-
-.pillar-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--cream);
-  line-height: 1.4;
-}
-
-.pillar-value em {
-  font-style: italic;
-  color: var(--gold);
-  font-weight: 400;
-}
-
-/* ── CASTING SECTION ── */
-.casting-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin: 48px 0;
-}
-
-.cast-card {
-  background: rgba(200, 146, 42, 0.04);
-  border: 1px solid rgba(200, 146, 42, 0.15);
-  padding: 32px 24px;
-  text-align: center;
-  position: relative;
-  transition: border-color 0.3s;
-}
-
-.cast-card:hover {
-  border-color: rgba(200, 146, 42, 0.35);
-}
-
-.cast-era {
-  font-family: 'Cinzel', serif;
-  font-size: 8px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--burgundy-lt);
-  opacity: 0.8;
-  margin-bottom: 12px;
-}
-
-.cast-name {
-  font-family: 'Cinzel', serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--cream);
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-  line-height: 1.2;
-}
-
-.cast-desc {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 14px;
-  font-style: italic;
-  color: var(--cream-dim);
-  opacity: 0.65;
-  line-height: 1.4;
-}
-
-/* Director list */
-.director-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin: 32px 0;
-}
-
-.director-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 28px;
-  background: rgba(200, 146, 42, 0.03);
-  border: 1px solid rgba(200, 146, 42, 0.1);
-  transition: background 0.2s;
-}
-
-.director-item:hover {
-  background: rgba(200, 146, 42, 0.07);
-}
-
-.director-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 19px;
-  font-weight: 600;
-  color: var(--cream);
-}
-
-.director-note {
-  font-family: 'Lato', sans-serif;
-  font-size: 10px;
-  font-weight: 300;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  opacity: 0.55;
-}
-
-/* ── STRUCTURAL ── */
-.structure-section {
-  padding: 80px 60px;
-  background: rgba(200, 146, 42, 0.02);
-  border-top: 1px solid rgba(200, 146, 42, 0.1);
-  border-bottom: 1px solid rgba(200, 146, 42, 0.1);
-}
-
-.structure-inner { max-width: 900px; margin: 0 auto; }
-
-.structure-items {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.structure-item {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 28px;
-  padding: 28px 0;
-  border-bottom: 1px solid rgba(200, 146, 42, 0.08);
-  align-items: start;
-}
-
-.structure-item:last-child { border-bottom: none; }
-
-.structure-num {
-  font-family: 'Cinzel', serif;
-  font-size: 32px;
-  font-weight: 900;
-  color: var(--burgundy-lt);
-  opacity: 0.3;
-  line-height: 1;
-}
-
-.structure-content-title {
-  font-family: 'Cinzel', serif;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 8px;
-}
-
-.structure-content-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  line-height: 1.65;
-  color: var(--cream);
-  opacity: 0.8;
-}
-
-/* ── DOCUSERIES SECTION ── */
-.doc-section {
-  padding: 120px 60px;
-  background: linear-gradient(180deg, var(--ink) 0%, #0A1214 50%, var(--ink) 100%);
-  overflow: hidden;
-  position: relative;
-}
-
-.doc-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 40% at 20% 30%, rgba(31, 65, 69, 0.25) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 50% at 80% 70%, rgba(31, 65, 69, 0.15) 0%, transparent 55%);
-  pointer-events: none;
-}
-
-.doc-inner { max-width: 1100px; margin: 0 auto; position: relative; }
-
-.doc-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(42px, 7vw, 90px);
-  font-weight: 900;
-  color: var(--cream);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  line-height: 1.0;
-  margin-bottom: 16px;
-}
-
-.doc-tagline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2vw, 24px);
-  font-style: italic;
-  color: var(--teal-bright);
-  margin-bottom: 40px;
-  line-height: 1.4;
-}
-
-.doc-body {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  line-height: 1.75;
-  color: var(--cream);
-  opacity: 0.75;
-  max-width: 680px;
-  margin-bottom: 20px;
-}
-
-.doc-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  margin-top: 60px;
-  align-items: start;
-}
-
-/* Episode list */
-.episode-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.ep-item {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  border: 1px solid rgba(58, 136, 152, 0.15);
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.ep-item:hover {
-  border-color: rgba(58, 136, 152, 0.35);
-  background: rgba(58, 136, 152, 0.04);
-}
-
-.ep-num {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(58, 136, 152, 0.08);
-  border-right: 1px solid rgba(58, 136, 152, 0.15);
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--teal-bright);
-  opacity: 0.7;
-}
-
-.ep-content {
-  padding: 14px 18px;
-}
-
-.ep-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 3px;
-}
-
-.ep-artist {
-  font-family: 'Lato', sans-serif;
-  font-size: 10px;
-  font-weight: 300;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--teal-bright);
-  opacity: 0.65;
-}
-
-/* Voices */
-.voices-block {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.voice-card {
-  border: 1px solid rgba(58, 136, 152, 0.2);
-  padding: 28px 28px;
-  background: rgba(31, 65, 69, 0.08);
-  position: relative;
-}
-
-.voice-role {
-  font-family: 'Cinzel', serif;
-  font-size: 8px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--teal-bright);
-  opacity: 0.65;
-  margin-bottom: 10px;
-}
-
-.voice-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 8px;
-}
-
-.voice-desc {
-  font-family: 'Lato', sans-serif;
-  font-size: 12px;
-  font-weight: 300;
-  line-height: 1.6;
-  color: var(--cream-dim);
-  opacity: 0.65;
-}
-
-/* ── IMMERSIVE SECTION ── */
-.immersive-section {
-  padding: 120px 60px;
-  background: linear-gradient(180deg, var(--ink) 0%, #0C0808 50%, var(--ink) 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.immersive-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 50% 60% at 50% 40%, rgba(92, 26, 14, 0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 30% 40% at 20% 70%, rgba(200, 146, 42, 0.08) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.immersive-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.immersive-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(36px, 6vw, 80px);
-  font-weight: 900;
-  color: var(--cream);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  line-height: 1.0;
-  margin-bottom: 12px;
-}
-
-.immersive-alts {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-
-.immersive-alt-label {
-  font-family: 'Cinzel', serif;
-  font-size: 8px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  opacity: 0.5;
-}
-
-.immersive-alt-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  font-style: italic;
-  color: var(--cream-dim);
-  opacity: 0.45;
-  padding-left: 16px;
-  border-left: 1px solid rgba(200, 146, 42, 0.2);
-}
-
-.immersive-tagline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2.2vw, 24px);
-  font-style: italic;
-  color: var(--gold);
-  margin-bottom: 32px;
-  line-height: 1.5;
-  max-width: 680px;
-}
-
-.immersive-body {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  line-height: 1.75;
-  color: var(--cream);
-  opacity: 0.75;
-  max-width: 680px;
-  margin-bottom: 20px;
-}
-
-.sicarri-block {
-  margin-top: 48px;
-  padding: 36px 40px;
-  border: 1px solid rgba(200, 146, 42, 0.2);
-  background: rgba(200, 146, 42, 0.04);
-  display: inline-block;
-}
-
-.sicarri-label {
-  font-family: 'Cinzel', serif;
-  font-size: 8px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  opacity: 0.6;
-  margin-bottom: 8px;
-}
-
-.sicarri-name {
-  font-family: 'Cinzel', serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--cream);
-  letter-spacing: 2px;
-}
-
-.sicarri-desc {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
-  font-style: italic;
-  color: var(--cream-dim);
-  opacity: 0.6;
-  margin-top: 6px;
-}
-
-/* ── IP & LEGAL ── */
-.legal-section {
-  padding: 80px 60px;
-  background: rgba(200, 146, 42, 0.025);
-  border-top: 1px solid rgba(200, 146, 42, 0.1);
-}
-
-.legal-inner {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.legal-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 48px;
-  border: 1px solid rgba(200, 146, 42, 0.12);
-}
-
-.legal-item {
-  padding: 28px 24px;
-  background: rgba(200, 146, 42, 0.03);
-  border-right: 1px solid rgba(200, 146, 42, 0.1);
-}
-
-.legal-item:last-child { border-right: none; }
-
-.legal-label {
-  font-family: 'Cinzel', serif;
-  font-size: 8px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  opacity: 0.55;
-  margin-bottom: 8px;
-}
-
-.legal-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--cream);
-  line-height: 1.4;
-}
-
-/* ── TEAM ── */
-.team-section {
-  padding: 120px 60px;
-  background: linear-gradient(180deg, var(--ink) 0%, #100A06 100%);
-}
-
-.team-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-top: 60px;
-}
-
-.team-card {
-  padding: 40px 36px;
-  border: 1px solid rgba(200, 146, 42, 0.15);
-  background: rgba(200, 146, 42, 0.03);
-  position: relative;
-  transition: border-color 0.3s;
-}
-
-.team-card:hover { border-color: rgba(200, 146, 42, 0.3); }
-
-.team-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, var(--burgundy-lt), transparent);
-  opacity: 0.4;
-}
-
-.team-role {
-  font-family: 'Cinzel', serif;
-  font-size: 8px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  opacity: 0.6;
-  margin-bottom: 12px;
-}
-
-.team-name {
-  font-family: 'Cinzel', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--cream);
-  letter-spacing: 1px;
-  margin-bottom: 16px;
-}
-
-.team-bio {
-  font-family: 'Lato', sans-serif;
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.75;
-  color: var(--cream-dim);
-  opacity: 0.7;
-}
-
-/* ── MARKET ── */
-.market-section {
-  padding: 80px 60px;
-  background: rgba(92, 26, 14, 0.08);
-  border-top: 1px solid rgba(92, 26, 14, 0.3);
-  border-bottom: 1px solid rgba(92, 26, 14, 0.3);
-}
-
-.market-inner {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.market-comps {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-}
-
-.comp-pill {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-style: italic;
-  font-weight: 600;
-  color: var(--cream);
-  padding: 12px 24px;
-  border: 1px solid rgba(200, 146, 42, 0.25);
-  background: rgba(200, 146, 42, 0.05);
-}
-
-.market-body {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  line-height: 1.75;
-  color: var(--cream);
-  opacity: 0.8;
-  margin-top: 32px;
-}
-
-/* ── CONTACT/CTA ── */
-.contact-section {
-  padding: 120px 60px;
-  text-align: center;
-  background: linear-gradient(180deg, var(--ink) 0%, #100804 60%, var(--ink) 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-bg {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(92, 26, 14, 0.25) 0%, transparent 65%);
-}
-
-.contact-inner {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.contact-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 700;
-  color: var(--cream);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.contact-tagline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-style: italic;
-  color: var(--gold);
-  margin-bottom: 48px;
-  line-height: 1.5;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 48px;
-}
-
-.contact-name {
-  font-family: 'Cinzel', serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--cream);
-  letter-spacing: 2px;
-}
-
-.contact-detail {
-  font-family: 'Lato', sans-serif;
-  font-size: 12px;
-  font-weight: 300;
-  letter-spacing: 2px;
-  color: var(--cream-dim);
-  opacity: 0.6;
-}
-
-.contact-detail a {
-  color: inherit;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.contact-detail a:hover { opacity: 1; color: var(--gold); }
-
-.contact-cta-group {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.cta-btn {
-  font-family: 'Cinzel', serif;
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  padding: 16px 36px;
-  text-decoration: none;
-  border: 1px solid;
-  transition: all 0.25s;
-  cursor: pointer;
-}
-
-.cta-btn-primary {
-  color: var(--ink);
-  background: var(--gold);
-  border-color: var(--gold);
-}
-
-.cta-btn-primary:hover {
-  background: var(--gold-lt);
-}
-
-.cta-btn-outline {
-  color: var(--cream-dim);
-  background: transparent;
-  border-color: rgba(207, 192, 160, 0.3);
-}
-
-.cta-btn-outline:hover {
-  border-color: rgba(207, 192, 160, 0.6);
-  color: var(--cream);
-}
-
-/* ── FOOTER ── */
-footer {
-  background: var(--dark);
-  border-top: 1px solid rgba(200, 146, 42, 0.12);
-  padding: 48px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-brand {
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  opacity: 0.6;
-  line-height: 1.6;
-}
-
-.footer-center {
-  text-align: center;
-}
-
-.footer-series {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  font-style: italic;
-  color: var(--cream-dim);
-  opacity: 0.5;
-}
-
-.footer-url {
-  font-family: 'Cinzel', serif;
-  font-size: 9px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  opacity: 0.4;
-  margin-top: 4px;
-}
-
-.footer-right {
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--cream-dim);
-  opacity: 0.35;
-  text-align: right;
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in {
-  opacity: 0;
-  animation: fadeUp 0.9s ease forwards;
-}
-
-.fade-in-1 { animation-delay: 0.1s; }
-.fade-in-2 { animation-delay: 0.3s; }
-.fade-in-3 { animation-delay: 0.5s; }
-.fade-in-4 { animation-delay: 0.7s; }
-.fade-in-5 { animation-delay: 0.9s; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  nav { padding: 16px 24px; }
-  .nav-links { display: none; }
-  .hero { padding: 100px 24px 60px; }
-  .subject-inner { grid-template-columns: 1fr; gap: 40px; }
-  .film-pillars { grid-template-columns: 1fr; }
-  .casting-grid { grid-template-columns: 1fr; }
-  .doc-grid { grid-template-columns: 1fr; }
-  .team-grid { grid-template-columns: 1fr; }
-  .legal-grid { grid-template-columns: 1fr; }
-  .subject-section,
-  .film-section,
-  .doc-section,
-  .immersive-section,
-  .team-section,
-  .contact-section { padding: 80px 24px; }
-  .timeline-section { padding: 60px 24px; }
-  .tl-item { grid-template-columns: 0 28px 1fr; }
-  .tl-left { display: none; }
-  footer { flex-direction: column; gap: 20px; text-align: center; }
-  .footer-right { text-align: center; }
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --burg:#5C1A0E;--burg-mid:#7A2510;--burg-lt:#9E3318;--rust:#B44820;
+  --gold:#C8922A;--gold-lt:#E8B84A;--gold-dim:#8A6218;
+  --cream:#F4EAD8;--cream-dim:#CFC0A0;
+  --teal:#1F4145;--teal-lt:#2D5C62;--teal-bright:#3A8898;
+  --ink:#0A0604;--dark:#100804;--dark-mid:#1A1008;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:var(--ink);color:var(--cream);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 60px;background:rgba(10,6,4,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,146,42,0.15);transition:background 0.3s}
+.nav-brand{font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;color:var(--gold-dim);text-transform:uppercase;text-decoration:none}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cream-dim);text-decoration:none;opacity:0.6;transition:opacity 0.2s,color 0.2s}
+.nav-links a:hover{opacity:1;color:var(--gold)}
+.nav-cta{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(200,146,42,0.4);padding:8px 20px;transition:all 0.2s}
+.nav-cta:hover{background:rgba(200,146,42,0.12);border-color:var(--gold)}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:120px 60px 100px}
+.hero-img{position:absolute;inset:0;background-image:url('Through-The-Mountains.jpg');background-size:cover;background-position:center 30%;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,6,4,0.55) 0%,rgba(10,6,4,0.35) 40%,rgba(10,6,4,0.72) 75%,rgba(10,6,4,0.97) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:900px}
+.hero-eyebrow{font-family:'Cinzel',serif;font-size:9px;letter-spacing:6px;color:var(--gold-dim);text-transform:uppercase;margin-bottom:28px;opacity:0.85}
+.hero-eyebrow span{display:inline-block;width:36px;height:1px;background:var(--gold-dim);vertical-align:middle;margin:0 14px;opacity:0.5}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(72px,12vw,130px);font-weight:900;color:var(--cream);letter-spacing:0.12em;text-transform:uppercase;line-height:0.9;margin-bottom:14px;text-shadow:0 2px 40px rgba(0,0,0,0.5)}
+.hero-title-sub{font-family:'Cinzel',serif;font-size:clamp(12px,2vw,18px);font-weight:400;color:var(--gold);letter-spacing:0.6em;text-transform:uppercase;margin-bottom:36px}
+.hero-rule{display:flex;align-items:center;gap:20px;justify-content:center;margin-bottom:36px}
+.hrl{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim))}
+.hrl.r{background:linear-gradient(90deg,var(--gold-dim),transparent)}
+.hdiam{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.3vw,24px);font-style:italic;color:var(--cream);line-height:1.55;max-width:680px;margin:0 auto 40px;opacity:0.9}
+.hero-sub{font-family:'Lato',sans-serif;font-size:10px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:var(--cream-dim);opacity:0.5;margin-bottom:48px}
+.hero-pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.pill{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:12px 28px;border:1px solid;text-decoration:none;transition:all 0.25s;cursor:pointer}
+.pill-gold{color:var(--ink);background:var(--gold);border-color:var(--gold)}
+.pill-gold:hover{background:var(--gold-lt)}
+.pill-outline{color:var(--cream-dim);background:transparent;border-color:rgba(207,192,160,0.3)}
+.pill-outline:hover{color:var(--cream);border-color:rgba(207,192,160,0.65);background:rgba(207,192,160,0.04)}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0.3;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+.hero-scroll-txt{font-family:'Cinzel',serif;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dim)}
+.hero-scroll-line{width:1px;height:36px;background:linear-gradient(180deg,var(--gold-dim),transparent)}
+
+/* SHARED */
+.sec-eyebrow{font-family:'Cinzel',serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold-dim);opacity:0.7;display:block;margin-bottom:14px}
+.sec-title{font-family:'Cinzel',serif;font-size:clamp(32px,5vw,56px);font-weight:700;color:var(--cream);letter-spacing:0.06em;text-transform:uppercase;line-height:1.0}
+.sec-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2vw,21px);font-style:italic;color:var(--gold);margin-top:10px;line-height:1.4}
+.divider{display:flex;align-items:center;gap:20px;margin:0 auto}
+.div-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(200,146,42,0.3))}
+.div-line.r{background:linear-gradient(90deg,rgba(200,146,42,0.3),transparent)}
+.div-diam{width:5px;height:5px;background:var(--gold-dim);transform:rotate(45deg);opacity:0.5}
+.body-text{font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.78;color:var(--cream);opacity:0.78;margin-bottom:20px}
+.body-text strong{color:var(--gold);font-weight:600}
+.body-text em{font-style:italic;color:var(--cream)}
+
+/* SUBJECT */
+.subject-sec{padding:120px 60px;background:linear-gradient(180deg,var(--ink) 0%,#160A04 50%,var(--ink) 100%)}
+.subject-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.quote-block{background:rgba(92,26,14,0.12);border-left:3px solid var(--burg-lt);padding:28px 28px 28px 36px;position:relative;margin-top:36px}
+.quote-block::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:72px;color:var(--burg-lt);opacity:0.28;position:absolute;top:-8px;left:10px;line-height:1}
+.quote-txt{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--cream);line-height:1.6;padding-left:24px}
+.quote-txt strong{color:var(--gold);font-style:normal}
+.quote-attr{font-family:'Lato',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);opacity:0.55;margin-top:10px;padding-left:24px}
+.honor-stack{display:flex;flex-direction:column;gap:14px}
+.honor-card{background:rgba(200,146,42,0.05);border:1px solid rgba(200,146,42,0.18);padding:18px 22px}
+.honor-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);opacity:0.6;margin-bottom:5px}
+.honor-val{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--cream);line-height:1.3}
+
+/* GALLERY */
+.gallery-sec{padding:100px 40px;background:var(--dark)}
+.gallery-inner{max-width:1300px;margin:0 auto}
+.gallery-header{text-align:center;margin-bottom:60px}
+.gallery-grid{columns:3;column-gap:12px}
+.gallery-item{break-inside:avoid;margin-bottom:12px;position:relative;overflow:hidden;cursor:pointer;group:true}
+.gallery-item img{width:100%;display:block;transition:transform 0.5s ease,filter 0.4s}
+.gallery-item:hover img{transform:scale(1.03);filter:brightness(1.08)}
+.gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 16px 14px;background:linear-gradient(0deg,rgba(10,6,4,0.85) 0%,transparent 100%);opacity:0;transition:opacity 0.3s;transform:translateY(0)}
+.gallery-item:hover .gallery-caption{opacity:1}
+.gallery-caption-title{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);display:block}
+.gallery-caption-note{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--gold);opacity:0.8;margin-top:2px}
+
+/* TIMELINE */
+.tl-sec{padding:80px 60px 120px;background:linear-gradient(180deg,var(--ink) 0%,#12090A 100%)}
+.tl-inner{max-width:900px;margin:0 auto;position:relative}
+.tl-spine{position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);background:linear-gradient(180deg,var(--burg-lt),var(--gold),var(--teal-lt),var(--gold));opacity:0.28}
+.tl-item{display:grid;grid-template-columns:1fr 44px 1fr;align-items:start;margin-bottom:44px;position:relative}
+.tl-left{text-align:right;padding-right:26px;padding-top:4px}
+.tl-right{padding-left:26px}
+.tl-callout{display:inline-block;background:rgba(200,146,42,0.07);border:1px solid rgba(200,146,42,0.2);border-radius:20px;padding:5px 13px}
+.tl-ctxt{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--cream-dim);line-height:1.3}
+.tl-ctxt strong{font-style:normal;font-weight:700;color:var(--gold)}
+.tl-dot-wrap{display:flex;justify-content:center;padding-top:4px}
+.tl-dot{width:13px;height:13px;border-radius:50%;border:2px solid var(--gold);background:var(--dark);position:relative;z-index:2}
+.tl-dot.rust{border-color:var(--burg-lt);background:rgba(92,26,14,0.3)}
+.tl-dot.teal{border-color:var(--teal-bright);background:rgba(31,65,69,0.3)}
+.tl-year{font-family:'Cinzel',serif;font-size:10px;font-weight:600;color:var(--gold);letter-spacing:2px;margin-bottom:2px}
+.tl-event{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--cream);line-height:1.2;margin-bottom:3px}
+.tl-event em{color:var(--cream-dim);font-weight:400}
+.tl-event.gold{color:var(--gold)}
+.tl-event.teal{color:#8ABCC4}
+.tl-desc{font-family:'Lato',sans-serif;font-size:12px;font-weight:300;color:rgba(244,234,216,0.42);line-height:1.5;max-width:320px}
+
+/* FILM SECTION */
+.film-sec{padding:120px 60px;position:relative;overflow:hidden}
+.film-bg-img{position:absolute;inset:0;background-image:url('Trail-Memories-II.jpg');background-size:cover;background-position:center;z-index:0;filter:saturate(0.7)}
+.film-bg-over{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,6,4,0.88) 0%,rgba(20,8,4,0.80) 50%,rgba(10,6,4,0.92) 100%);z-index:1}
+.film-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.proj-badge{font-family:'Cinzel',serif;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--burg-lt);opacity:0.8;margin-bottom:8px}
+.fmt-row{display:flex;gap:12px;align-items:center;margin-bottom:24px;flex-wrap:wrap}
+.fmt-tag{font-family:'Lato',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:6px 16px;border:1px solid}
+.fmt-primary{color:var(--gold);border-color:rgba(200,146,42,0.4)}
+.fmt-alt{color:var(--cream-dim);border-color:rgba(207,192,160,0.2);opacity:0.5}
+.film-title{font-family:'Cinzel',serif;font-size:clamp(60px,10vw,120px);font-weight:900;color:var(--cream);letter-spacing:0.15em;text-transform:uppercase;line-height:0.9;margin-bottom:18px}
+.film-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.5vw,27px);font-style:italic;color:var(--cream);line-height:1.45;max-width:680px;margin-bottom:28px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:56px 0;border:1px solid rgba(200,146,42,0.15)}
+.pillar{padding:32px 28px;background:rgba(200,146,42,0.04);border-right:1px solid rgba(200,146,42,0.1);position:relative}
+.pillar:last-child{border-right:none}
+.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--burg-lt);opacity:0.5}
+.pillar-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);opacity:0.6;margin-bottom:10px}
+.pillar-val{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--cream);line-height:1.4}
+.pillar-val em{font-style:italic;color:var(--gold);font-weight:400}
+.cast-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:40px 0}
+.cast-card{background:rgba(200,146,42,0.04);border:1px solid rgba(200,146,42,0.14);padding:28px 20px;text-align:center;transition:border-color 0.3s}
+.cast-card:hover{border-color:rgba(200,146,42,0.32)}
+.cast-era{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--burg-lt);opacity:0.8;margin-bottom:10px}
+.cast-name{font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--cream);letter-spacing:1px;margin-bottom:7px;line-height:1.2}
+.cast-desc{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--cream-dim);opacity:0.6;line-height:1.4}
+.dir-list{display:flex;flex-direction:column;gap:2px;margin:28px 0}
+.dir-item{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:rgba(200,146,42,0.03);border:1px solid rgba(200,146,42,0.1);transition:background 0.2s}
+.dir-item:hover{background:rgba(200,146,42,0.07)}
+.dir-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--cream)}
+.dir-note{font-family:'Lato',sans-serif;font-size:10px;font-weight:300;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);opacity:0.5}
+
+/* STRUCTURE */
+.struct-sec{padding:80px 60px;background:rgba(200,146,42,0.02);border-top:1px solid rgba(200,146,42,0.1);border-bottom:1px solid rgba(200,146,42,0.1)}
+.struct-inner{max-width:900px;margin:0 auto}
+.struct-items{display:flex;flex-direction:column;gap:0}
+.struct-item{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid rgba(200,146,42,0.08);align-items:start}
+.struct-item:last-child{border-bottom:none}
+.struct-num{font-family:'Cinzel',serif;font-size:30px;font-weight:900;color:var(--burg-lt);opacity:0.28;line-height:1}
+.struct-ttl{font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.struct-txt{font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.65;color:var(--cream);opacity:0.78}
+
+/* DOCUSERIES */
+.doc-sec{padding:120px 60px;position:relative;overflow:hidden}
+.doc-bg-img{position:absolute;inset:0;background-image:url('Lone-Spirit.jpg');background-size:cover;background-position:center;z-index:0;filter:saturate(0.5)}
+.doc-bg-over{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,6,4,0.9) 0%,rgba(8,18,20,0.85) 50%,rgba(10,6,4,0.93) 100%);z-index:1}
+.doc-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.doc-title{font-family:'Cinzel',serif;font-size:clamp(42px,7vw,88px);font-weight:900;color:var(--cream);letter-spacing:0.06em;text-transform:uppercase;line-height:1.0;margin-bottom:14px}
+.doc-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2vw,23px);font-style:italic;color:var(--teal-bright);margin-bottom:36px;line-height:1.4}
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:56px;align-items:start}
+.ep-list{display:flex;flex-direction:column;gap:2px}
+.ep-item{display:grid;grid-template-columns:56px 1fr;border:1px solid rgba(58,136,152,0.15);transition:border-color 0.2s,background 0.2s}
+.ep-item:hover{border-color:rgba(58,136,152,0.35);background:rgba(58,136,152,0.04)}
+.ep-num{display:flex;align-items:center;justify-content:center;background:rgba(58,136,152,0.08);border-right:1px solid rgba(58,136,152,0.15);font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;color:var(--teal-bright);opacity:0.7}
+.ep-content{padding:12px 16px}
+.ep-title{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--cream);margin-bottom:2px}
+.ep-artist{font-family:'Lato',sans-serif;font-size:10px;font-weight:300;letter-spacing:2px;text-transform:uppercase;color:var(--teal-bright);opacity:0.6}
+.voices-block{display:flex;flex-direction:column;gap:20px}
+.voice-card{border:1px solid rgba(58,136,152,0.2);padding:24px 24px;background:rgba(31,65,69,0.08)}
+.voice-role{font-family:'Cinzel',serif;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-bright);opacity:0.6;margin-bottom:8px}
+.voice-name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--cream);margin-bottom:7px}
+.voice-desc{font-family:'Lato',sans-serif;font-size:12px;font-weight:300;line-height:1.65;color:var(--cream-dim);opacity:0.6}
+
+/* IMMERSIVE */
+.imm-sec{padding:120px 60px;position:relative;overflow:hidden}
+.imm-bg-img{position:absolute;inset:0;background-image:url('sentinals.jpg');background-size:cover;background-position:center;z-index:0;filter:saturate(0.55)}
+.imm-bg-over{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,6,4,0.88) 0%,rgba(10,6,4,0.78) 50%,rgba(10,6,4,0.93) 100%);z-index:1}
+.imm-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.imm-title{font-family:'Cinzel',serif;font-size:clamp(36px,6vw,78px);font-weight:900;color:var(--cream);letter-spacing:0.1em;text-transform:uppercase;line-height:1.0;margin-bottom:10px}
+.imm-alts{display:flex;gap:14px;align-items:center;margin-bottom:36px;flex-wrap:wrap}
+.imm-alt-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);opacity:0.5}
+.imm-alt-t{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--cream-dim);opacity:0.4;padding-left:14px;border-left:1px solid rgba(200,146,42,0.2)}
+.imm-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.2vw,23px);font-style:italic;color:var(--gold);margin-bottom:28px;line-height:1.5;max-width:660px}
+.sicarri-block{margin-top:44px;padding:32px 36px;border:1px solid rgba(200,146,42,0.2);background:rgba(200,146,42,0.04);display:inline-block}
+.sicarri-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dim);opacity:0.6;margin-bottom:7px}
+.sicarri-name{font-family:'Cinzel',serif;font-size:19px;font-weight:600;color:var(--cream);letter-spacing:2px}
+.sicarri-desc{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--cream-dim);opacity:0.55;margin-top:5px}
+
+/* EVENT SECTION */
+.event-sec{padding:80px 60px;background:linear-gradient(135deg,#200A04 0%,#0A1214 60%,#180A04 100%);border-top:1px solid rgba(200,146,42,0.2);border-bottom:1px solid rgba(200,146,42,0.2);position:relative;overflow:hidden}
+.event-bg-img{position:absolute;inset:0;background-image:url('Tuklo-Dancers-24x20-1.jpg');background-size:cover;background-position:center top;z-index:0;opacity:0.15;filter:saturate(0.6)}
+.event-inner{max-width:900px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.event-left .event-title{font-family:'Cinzel',serif;font-size:clamp(28px,4vw,50px);font-weight:900;color:var(--cream);letter-spacing:0.08em;text-transform:uppercase;line-height:1.05;margin-bottom:12px}
+.event-left .event-subtitle{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--gold);margin-bottom:20px;line-height:1.4}
+.event-left .event-desc{font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.7;color:var(--cream);opacity:0.75}
+.event-right{display:flex;flex-direction:column;gap:2px}
+.event-detail{display:grid;grid-template-columns:80px 1fr;border:1px solid rgba(200,146,42,0.18);background:rgba(200,146,42,0.04)}
+.event-detail-lbl{padding:16px 14px;background:rgba(200,146,42,0.08);border-right:1px solid rgba(200,146,42,0.15);font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);opacity:0.7;display:flex;align-items:center}
+.event-detail-val{padding:16px 18px;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--cream);line-height:1.3}
+.event-detail-val small{display:block;font-size:12px;font-weight:400;font-style:italic;color:var(--cream-dim);opacity:0.55;margin-top:2px}
+.event-cta{margin-top:20px}
+.event-cta a{display:inline-block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:14px 28px;background:var(--gold);color:var(--ink);text-decoration:none;border:1px solid var(--gold);transition:all 0.2s}
+.event-cta a:hover{background:var(--gold-lt)}
+
+/* LEGAL */
+.legal-sec{padding:72px 60px;background:rgba(200,146,42,0.025);border-top:1px solid rgba(200,146,42,0.1)}
+.legal-inner{max-width:900px;margin:0 auto}
+.legal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:44px;border:1px solid rgba(200,146,42,0.12)}
+.legal-item{padding:26px 22px;background:rgba(200,146,42,0.03);border-right:1px solid rgba(200,146,42,0.1)}
+.legal-item:last-child{border-right:none}
+.legal-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);opacity:0.55;margin-bottom:7px}
+.legal-val{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--cream);line-height:1.4}
+
+/* MARKET */
+.market-sec{padding:72px 60px;background:rgba(92,26,14,0.07);border-top:1px solid rgba(92,26,14,0.3);border-bottom:1px solid rgba(92,26,14,0.3)}
+.market-inner{max-width:900px;margin:0 auto}
+.comp-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.comp-pill{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;font-weight:600;color:var(--cream);padding:10px 22px;border:1px solid rgba(200,146,42,0.25);background:rgba(200,146,42,0.05)}
+
+/* TEAM */
+.team-sec{padding:120px 60px;background:linear-gradient(180deg,var(--ink) 0%,#100A06 100%)}
+.team-inner{max-width:1100px;margin:0 auto}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px}
+.team-card{padding:36px 32px;border:1px solid rgba(200,146,42,0.15);background:rgba(200,146,42,0.03);position:relative;transition:border-color 0.3s}
+.team-card:hover{border-color:rgba(200,146,42,0.28)}
+.team-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--burg-lt),transparent);opacity:0.4}
+.team-role{font-family:'Cinzel',serif;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dim);opacity:0.6;margin-bottom:10px}
+.team-name{font-family:'Cinzel',serif;font-size:21px;font-weight:700;color:var(--cream);letter-spacing:1px;margin-bottom:14px}
+.team-bio{font-family:'Lato',sans-serif;font-size:13px;font-weight:300;line-height:1.75;color:var(--cream-dim);opacity:0.68}
+
+/* CONTACT */
+.contact-sec{padding:120px 60px;text-align:center;position:relative;overflow:hidden}
+.contact-bg-img{position:absolute;inset:0;background-image:url('Tribe-Sign.jpg');background-size:cover;background-position:center;z-index:0;opacity:0.12;filter:saturate(0.4)}
+.contact-bg-over{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(92,26,14,0.3) 0%,rgba(10,6,4,0.85) 65%);z-index:1}
+.contact-inner{position:relative;z-index:2;max-width:680px;margin:0 auto}
+.contact-title{font-family:'Cinzel',serif;font-size:clamp(26px,4vw,46px);font-weight:700;color:var(--cream);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:18px}
+.contact-tagline{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--gold);margin-bottom:44px;line-height:1.5}
+.contact-block{margin-bottom:40px}
+.contact-name{font-family:'Cinzel',serif;font-size:13px;font-weight:600;color:var(--cream);letter-spacing:2px;margin-bottom:6px}
+.contact-det{font-family:'Lato',sans-serif;font-size:12px;font-weight:300;letter-spacing:2px;color:var(--cream-dim);opacity:0.55}
+.contact-det a{color:inherit;text-decoration:none;transition:opacity 0.2s,color 0.2s}
+.contact-det a:hover{opacity:1;color:var(--gold)}
+.cta-group{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-btn{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:15px 32px;text-decoration:none;border:1px solid;transition:all 0.25s}
+.cta-gold{color:var(--ink);background:var(--gold);border-color:var(--gold)}
+.cta-gold:hover{background:var(--gold-lt)}
+.cta-out{color:var(--cream-dim);background:transparent;border-color:rgba(207,192,160,0.3)}
+.cta-out:hover{border-color:rgba(207,192,160,0.6);color:var(--cream)}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid rgba(200,146,42,0.12);padding:44px 60px;display:flex;justify-content:space-between;align-items:center}
+.footer-brand{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);opacity:0.55;line-height:1.6}
+.footer-ctr{text-align:center}
+.footer-series{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--cream-dim);opacity:0.45}
+.footer-url{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dim);opacity:0.35;margin-top:3px}
+.footer-right{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--cream-dim);opacity:0.3;text-align:right}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{opacity:0;animation:fadeUp 0.9s ease forwards}
+.f1{animation-delay:0.1s}.f2{animation-delay:0.3s}.f3{animation-delay:0.5s}.f4{animation-delay:0.7s}.f5{animation-delay:0.9s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+  .hero,.subject-sec,.film-sec,.doc-sec,.imm-sec,.team-sec,.contact-sec{padding:80px 20px}
+  .tl-sec,.gallery-sec,.event-sec,.legal-sec,.market-sec,.struct-sec{padding:60px 20px}
+  .subject-inner,.doc-grid,.team-grid,.event-inner{grid-template-columns:1fr}
+  .pillars,.cast-grid,.legal-grid{grid-template-columns:1fr}
+  .gallery-grid{columns:2}
+  footer{flex-direction:column;gap:18px;text-align:center;padding:36px 20px}
+  .footer-right{text-align:center}
+  .tl-item{grid-template-columns:0 28px 1fr}
+  .tl-left{display:none}
+}
+@media(max-width:560px){.gallery-grid{columns:1}}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="#" class="nav-brand">Victory on the Big Screen</a>
+<nav id="top">
+  <a href="#top" class="nav-brand">Victory on the Big Screen</a>
   <ul class="nav-links">
     <li><a href="#film">The Film</a></li>
     <li><a href="#subject">Poteet Victory</a></li>
     <li><a href="#docuseries">Outside the Frame</a></li>
-    <li><a href="#immersive">The Invisible Canvas</a></li>
-    <li><a href="#team">The Team</a></li>
+    <li><a href="#immersive">Invisible Canvas</a></li>
+    <li><a href="#event">Kickoff Event</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Contact</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grain"></div>
-
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow fade-in fade-in-1">
-      <span></span>
-      Son of a Botanist Productions Presents
-      <span></span>
-    </div>
-
-    <h1 class="hero-title fade-in fade-in-2">Victory</h1>
-    <div class="hero-title-sub fade-in fade-in-2">on the big screen</div>
-
-    <div class="hero-rule fade-in fade-in-3">
-      <div class="hero-rule-line"></div>
-      <div class="hero-diamond"></div>
-      <div class="hero-rule-line r"></div>
-    </div>
-
-    <p class="hero-tagline fade-in fade-in-3">
-      A three-project slate honoring the art and life of Cherokee-Choctaw painter Poteet Victory — feature film, prestige docuseries, and monumental immersive experience.
-    </p>
-
-    <div class="hero-subtitle fade-in fade-in-4">
-      Feature Film &nbsp;·&nbsp; Docuseries &nbsp;·&nbsp; Immersive Art Experience
-    </div>
-
-    <div class="hero-nav-pills fade-in fade-in-5">
-      <a href="#film" class="pill pill-primary">The Feature Film</a>
-      <a href="#docuseries" class="pill pill-outline">Outside the Frame</a>
+    <div class="hero-eyebrow fade-in f1"><span></span>Son of a Botanist Productions Presents<span></span></div>
+    <h1 class="hero-title fade-in f2">Victory</h1>
+    <div class="hero-title-sub fade-in f2">on the big screen</div>
+    <div class="hero-rule fade-in f3"><div class="hrl"></div><div class="hdiam"></div><div class="hrl r"></div></div>
+    <p class="hero-tagline fade-in f3">A three-project slate honoring the art and life of Cherokee-Choctaw painter Poteet Victory — feature film, prestige docuseries, and monumental immersive experience.</p>
+    <div class="hero-sub fade-in f4">Feature Film &nbsp;·&nbsp; Docuseries &nbsp;·&nbsp; Immersive Art Experience</div>
+    <div class="hero-pills fade-in f5">
+      <a href="#film" class="pill pill-gold">The Feature Film</a>
+      <a href="#gallery" class="pill pill-outline">The Art</a>
       <a href="#contact" class="pill pill-outline">Partner With Us</a>
     </div>
   </div>
-
-  <div class="hero-scroll">
-    <div class="hero-scroll-text">Scroll</div>
-    <div class="hero-scroll-line"></div>
-  </div>
+  <div class="hero-scroll"><div class="hero-scroll-txt">Scroll</div><div class="hero-scroll-line"></div></div>
 </section>
 
 <!-- SUBJECT -->
-<section class="subject-section" id="subject">
+<section class="subject-sec" id="subject">
   <div class="subject-inner">
-    <div class="subject-body">
-      <div class="section-header" style="text-align:left; margin-bottom:40px;">
-        <span class="section-eyebrow">The Subject</span>
-        <h2 class="section-title" style="font-size: clamp(36px, 4vw, 52px);">Poteet<br>Victory</h2>
-        <div class="section-subtitle">Cherokee-Choctaw · Idabel, Oklahoma</div>
+    <div>
+      <div style="margin-bottom:36px;">
+        <span class="sec-eyebrow">The Subject</span>
+        <h2 class="sec-title">Poteet<br>Victory</h2>
+        <div class="sec-sub">Cherokee-Choctaw · Idabel, Oklahoma</div>
       </div>
-
-      <p>He rode bulls bareback at thirteen. By thirty, he had built a million-dollar T-shirt silkscreening empire in Dallas — clients included <strong>Frito-Lay, CBS Records, Waylon Jennings, and Willie Nelson</strong> — and sold it.</p>
-
-      <p>His first contact in New York City was <strong>Andy Warhol</strong>, introduced through his early mentor Harold Stevenson, the abstract expressionist whose work hangs in the Guggenheim. He studied at the Art Students League. He moved to Santa Fe in <em>1989 with nothing</em>, bartended at Vanessie's, hung his paintings on the wall — and they sold.</p>
-
-      <p>He invented the palette knife as his singular voice. Abandoned brushes entirely. Created an abstract style unlike anything in the Western canon — <strong>glossy, layered, carrying Indigenous symbols and archetypes</strong> without illustrating them literally.</p>
-
-      <p>He is now the most in-demand Indigenous fine artist alive. A Smithsonian collection artist. First inductee to the Semple Museum of Native American Art Hall of Fame. His biography, <em>Poteet Victory</em> by J. Robert Keating (Atmosphere Press, 2022), is the IP foundation for this entire slate.</p>
-
-      <div class="subject-quote">
-        <div class="subject-quote-text">He has been called the <strong>"Forrest Gump of the art world"</strong> — a man who keeps appearing at every pivotal moment in American history, brush in hand, bearing witness to what others were never even allowed inside to see.</div>
-        <div class="subject-quote-attr">— Terry Victory, his wife &nbsp;·&nbsp; subject of <em>Outside the Frame</em></div>
+      <p class="body-text">He rode bulls bareback at thirteen. By thirty, he had built a million-dollar T-shirt silkscreening empire in Dallas — clients included <strong>Frito-Lay, CBS Records, Waylon Jennings, and Willie Nelson</strong> — and sold it.</p>
+      <p class="body-text">His first contact in New York City was <strong>Andy Warhol</strong>, introduced through his early mentor Harold Stevenson, the abstract expressionist whose work hangs in the Guggenheim. He studied at the Art Students League. He moved to Santa Fe in <em>1989 with nothing</em>, bartended at Vanessie's, hung his paintings on the wall — and they sold.</p>
+      <p class="body-text">He invented the palette knife as his singular voice. Abandoned brushes entirely. Created an abstract style unlike anything in the Western canon — <strong>glossy, layered, carrying Indigenous symbols and archetypes</strong> without illustrating them literally. The work emerges from a subconscious space. Collectors say it does something to them they cannot fully articulate.</p>
+      <div class="quote-block">
+        <div class="quote-txt">He has been called the <strong>"Forrest Gump of the art world"</strong> — a man who keeps appearing at every pivotal moment in American history, brush in hand, bearing witness to what others were never even allowed inside to see.</div>
+        <div class="quote-attr">— Terry Victory, his wife &nbsp;·&nbsp; subject of <em>Outside the Frame</em></div>
       </div>
     </div>
-
     <div class="honor-stack">
-      <div class="honor-card">
-        <div class="honor-label">Hall of Fame · 2022</div>
-        <div class="honor-value">First Inductee — Semple Museum of Native American Art HOF</div>
+      <div class="honor-card"><div class="honor-lbl">Hall of Fame · 2022</div><div class="honor-val">First Inductee — Semple Museum of Native American Art HOF</div></div>
+      <div class="honor-card"><div class="honor-lbl">Collection</div><div class="honor-val">Smithsonian Institution Permanent Collection</div></div>
+      <div class="honor-card"><div class="honor-lbl">Gallery</div><div class="honor-val">Victory Contemporary<br>124 W. Palace Ave., Santa Fe, NM</div></div>
+      <div class="honor-card"><div class="honor-lbl">Biography</div><div class="honor-val"><em>Poteet Victory</em><br>J. Robert Keating · Atmosphere Press, 2022</div></div>
+      <div class="honor-card"><div class="honor-lbl">Heritage</div><div class="honor-val">Cherokee-Choctaw<br>Born Idabel, Oklahoma, 1947</div></div>
+      <div class="honor-card"><div class="honor-lbl">J. Robert Keating, 2022</div><div class="honor-val">"One of the most-honored Native Americans of the past half-century"</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-sec" id="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-header">
+      <span class="sec-eyebrow">Selected Works</span>
+      <h2 class="sec-title" style="font-size:clamp(28px,4vw,46px);">The Paintings</h2>
+      <div class="sec-sub">Palette knife. Subconscious space. A world unto itself.</div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="Through-The-Mountains.jpg" alt="Through the Mountains by Poteet Victory">
+        <div class="gallery-caption"><span class="gallery-caption-title">Through the Mountains</span><span class="gallery-caption-note">Palette knife on canvas</span></div>
       </div>
-      <div class="honor-card">
-        <div class="honor-label">Collection</div>
-        <div class="honor-value">Smithsonian Institution<br>Permanent Collection</div>
+      <div class="gallery-item">
+        <img src="Trail-Memories-II.jpg" alt="Trail Memories II by Poteet Victory">
+        <div class="gallery-caption"><span class="gallery-caption-title">Trail Memories II</span><span class="gallery-caption-note">Cherokee iconography · crimson field</span></div>
       </div>
-      <div class="honor-card">
-        <div class="honor-label">Gallery</div>
-        <div class="honor-value">Victory Contemporary<br>124 W. Palace Ave., Santa Fe, NM</div>
+      <div class="gallery-item">
+        <img src="Lone-Spirit.jpg" alt="Lone Spirit by Poteet Victory">
+        <div class="gallery-caption"><span class="gallery-caption-title">Lone Spirit</span><span class="gallery-caption-note">Kachina figure · blue atmospheric field</span></div>
       </div>
-      <div class="honor-card">
-        <div class="honor-label">Biography</div>
-        <div class="honor-value"><em>Poteet Victory</em><br>J. Robert Keating · Atmosphere Press, 2022</div>
+      <div class="gallery-item">
+        <img src="Mystere.jpg" alt="Mystere by Poteet Victory">
+        <div class="gallery-caption"><span class="gallery-caption-title">Mystère</span><span class="gallery-caption-note">Orange / teal split · red lightning marks</span></div>
       </div>
-      <div class="honor-card">
-        <div class="honor-label">Heritage</div>
-        <div class="honor-value">Cherokee-Choctaw<br>Born Idabel, Oklahoma, 1947</div>
+      <div class="gallery-item">
+        <img src="Tuklo-Dancers-24x20-1.jpg" alt="Tuklo Dancers by Poteet Victory">
+        <div class="gallery-caption"><span class="gallery-caption-title">Tuklo Dancers</span><span class="gallery-caption-note">Double sun headdress · fire ground</span></div>
       </div>
-      <div class="honor-card">
-        <div class="honor-label">J. Robert Keating, 2022</div>
-        <div class="honor-value">"One of the most-honored Native Americans of the past half-century"</div>
+      <div class="gallery-item">
+        <img src="The-Watcher.jpg" alt="The Watcher by Poteet Victory">
+        <div class="gallery-caption"><span class="gallery-caption-title">The Watcher</span><span class="gallery-caption-note">Double kachina · gold ground</span></div>
       </div>
+      <div class="gallery-item">
+        <img src="Trail-Blanket-XL-III.jpg" alt="Trail Blanket XL III by Poteet Victory">
+        <div class="gallery-caption"><span class="gallery-caption-title">Trail Blanket XL III</span><span class="gallery-caption-note">Amber field · beaded blanket band</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="sentinals.jpg" alt="Sentinels by Poteet Victory">
+        <div class="gallery-caption"><span class="gallery-caption-title">Sentinels</span><span class="gallery-caption-note">Deep blue · two figures · nocturnal</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="Tribe-Sign.jpg" alt="Tribe Sign by Poteet Victory">
+        <div class="gallery-caption"><span class="gallery-caption-title">Tribe Sign</span><span class="gallery-caption-note">Ochre ground · twin totem columns</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="ox1z4jmgr91nfz2tuzbc.jpg" alt="Painting by Poteet Victory">
+        <div class="gallery-caption"><span class="gallery-caption-title">Untitled</span><span class="gallery-caption-note">Black ground · red crosses · geometric</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a href="http://victorycontemporary.com" target="_blank" rel="noopener" class="pill pill-outline" style="display:inline-block;">View Full Collection at victorycontemporary.com</a>
     </div>
   </div>
 </section>
 
 <!-- TIMELINE -->
-<section class="timeline-section" id="timeline">
-  <div style="max-width:1100px; margin:0 auto; margin-bottom:60px;">
-    <div class="section-header">
-      <span class="section-eyebrow">A Life in History</span>
-      <h2 class="section-title" style="font-size:clamp(28px,4vw,46px);">The Arc</h2>
-    </div>
+<section class="tl-sec" id="timeline">
+  <div style="max-width:1100px;margin:0 auto 56px;text-align:center;">
+    <span class="sec-eyebrow">A Life in History</span>
+    <h2 class="sec-title" style="font-size:clamp(28px,4vw,44px);">The Arc</h2>
   </div>
-
-  <div class="timeline-inner">
-    <div class="timeline-spine"></div>
-
+  <div class="tl-inner">
+    <div class="tl-spine"></div>
     <div class="tl-item">
-      <div class="tl-left"><div class="tl-callout"><div class="tl-callout-text">Raised <strong>90 miles</strong> from the Trail of Tears' end</div></div></div>
+      <div class="tl-left"><div class="tl-callout"><div class="tl-ctxt">Raised <strong>90 miles</strong> from the Trail of Tears' end</div></div></div>
       <div class="tl-dot-wrap"><div class="tl-dot rust"></div></div>
-      <div class="tl-right">
-        <div class="tl-year">1947</div>
-        <div class="tl-event">Born in Idabel, Oklahoma — <em>Choctaw heartland</em></div>
-        <div class="tl-desc">Raised by his Cherokee-Choctaw grandmother Willie Victory. His bloodline runs directly to survivors of forced removal.</div>
-      </div>
+      <div class="tl-right"><div class="tl-year">1947</div><div class="tl-event">Born in Idabel, Oklahoma — <em>Choctaw heartland</em></div><div class="tl-desc">Raised by his Cherokee-Choctaw grandmother Willie Victory. His bloodline runs directly to survivors of forced removal.</div></div>
     </div>
-
     <div class="tl-item">
-      <div class="tl-left"><div class="tl-callout"><div class="tl-callout-text">Riding <strong>bulls bareback</strong> by age 15 · ranch hand · military service</div></div></div>
+      <div class="tl-left"><div class="tl-callout"><div class="tl-ctxt">Riding <strong>bulls bareback</strong> · ranch hand · military service</div></div></div>
       <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-      <div class="tl-right">
-        <div class="tl-year">Early 1960s</div>
-        <div class="tl-event">Rodeo circuit, military service, hard labor</div>
-        <div class="tl-desc">Bull rider, ranch hand, enlisted soldier. Before he ever held a brush, Poteet Victory lived more lives than most people get in one.</div>
-      </div>
+      <div class="tl-right"><div class="tl-year">Early 1960s</div><div class="tl-event">Rodeo circuit, military service, hard labor</div><div class="tl-desc">Bull rider, ranch hand, enlisted soldier. Before he ever held a brush, Poteet Victory lived more lives than most people get in one.</div></div>
     </div>
-
     <div class="tl-item">
-      <div class="tl-left"><div class="tl-callout"><div class="tl-callout-text">Mentor <strong>called Warhol</strong> to say he was coming to NYC</div></div></div>
+      <div class="tl-left"><div class="tl-callout"><div class="tl-ctxt">Mentor <strong>called Warhol</strong> to say he was coming to NYC</div></div></div>
       <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-      <div class="tl-right">
-        <div class="tl-year">Late 1960s</div>
-        <div class="tl-event">Discovered by <em>Abstract Expressionist Harold Stevenson</em></div>
-        <div class="tl-desc">Stevenson — a New York modernist who ran with Warhol and Rauschenberg — spotted Poteet's schoolboy horse drawings and changed everything.</div>
-      </div>
+      <div class="tl-right"><div class="tl-year">Late 1960s</div><div class="tl-event">Discovered by <em>Abstract Expressionist Harold Stevenson</em></div><div class="tl-desc">Stevenson — a New York modernist who ran with Warhol and Rauschenberg — spotted Poteet's schoolboy horse drawings and changed everything.</div></div>
     </div>
-
     <div class="tl-item">
-      <div class="tl-left"><div class="tl-callout"><div class="tl-callout-text">Lived on a <strong>hippie commune</strong> on Maui, Hawaii</div></div></div>
+      <div class="tl-left"><div class="tl-callout"><div class="tl-ctxt">Lived on a <strong>hippie commune</strong> on Maui, Hawaii</div></div></div>
       <div class="tl-dot-wrap"><div class="tl-dot teal"></div></div>
-      <div class="tl-right">
-        <div class="tl-year">Early 1970s</div>
-        <div class="tl-event teal-txt">T-shirt empire — <em>Hawaii to Dallas</em></div>
-        <div class="tl-desc">Founded "Divine Designs" in Dallas — the first of its kind. Clients: Frito-Lay, Coca-Cola, CBS Records, Waylon Jennings, Willie Nelson.</div>
-      </div>
+      <div class="tl-right"><div class="tl-year">Early 1970s</div><div class="tl-event teal">T-shirt empire — <em>Hawaii to Dallas</em></div><div class="tl-desc">Founded "Divine Designs" in Dallas — the first of its kind. Clients: Frito-Lay, Coca-Cola, CBS Records, Waylon Jennings, Willie Nelson.</div></div>
     </div>
-
     <div class="tl-item">
-      <div class="tl-left"><div class="tl-callout"><div class="tl-callout-text"><strong>First person he met</strong> in NYC — Warhol opened the door himself</div></div></div>
+      <div class="tl-left"><div class="tl-callout"><div class="tl-ctxt"><strong>First person he met</strong> in NYC — Warhol opened the door himself</div></div></div>
       <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-      <div class="tl-right">
-        <div class="tl-year">Late 1970s</div>
-        <div class="tl-event gold-txt">Sold the business · Art Students League · Consulted with Warhol on silk screening</div>
-        <div class="tl-desc">Sold Divine Designs for a substantial sum. Met Warhol through Stevenson at his Factory — consulting with him on silk screening techniques.</div>
-      </div>
+      <div class="tl-right"><div class="tl-year">Late 1970s</div><div class="tl-event gold">Sold the business · Art Students League · Consulted with Warhol on silk screening</div><div class="tl-desc">Sold Divine Designs for a substantial sum. Met Warhol through Stevenson at his Factory — consulting with him on silk screening technique.</div></div>
     </div>
-
     <div class="tl-item">
-      <div class="tl-left"><div class="tl-callout"><div class="tl-callout-text">First Santa Fe job: <strong>bartender</strong> — hung his paintings, they sold</div></div></div>
+      <div class="tl-left"><div class="tl-callout"><div class="tl-ctxt">First Santa Fe job: <strong>bartender</strong> — hung his paintings, they sold</div></div></div>
       <div class="tl-dot-wrap"><div class="tl-dot teal"></div></div>
-      <div class="tl-right">
-        <div class="tl-year">1989</div>
-        <div class="tl-event teal-txt">Arrives in Santa Fe — <em>invents the palette knife as his voice</em></div>
-        <div class="tl-desc">Bartender at Vanessie's — hung his paintings on the wall and they sold. Abandoned brushes entirely. Created a style no one had seen before.</div>
-      </div>
+      <div class="tl-right"><div class="tl-year">1989</div><div class="tl-event teal">Arrives in Santa Fe — <em>invents the palette knife as his voice</em></div><div class="tl-desc">Bartender at Vanessie's — hung his paintings on the wall and they sold. Abandoned brushes entirely. Created a style no one had seen before.</div></div>
     </div>
-
     <div class="tl-item">
-      <div class="tl-left"><div class="tl-callout"><div class="tl-callout-text">Mural <strong>rejected mid-completion</strong> — imagery deemed too controversial; funding collapsed after 9/11</div></div></div>
+      <div class="tl-left"><div class="tl-callout"><div class="tl-ctxt">Mural <strong>rejected mid-completion</strong> — imagery too controversial; funding collapsed after 9/11</div></div></div>
       <div class="tl-dot-wrap"><div class="tl-dot rust"></div></div>
-      <div class="tl-right">
-        <div class="tl-year">2000</div>
-        <div class="tl-event">Trail of Tears Mural — <em>commissioned, then rejected</em></div>
-        <div class="tl-desc">University of Oklahoma commissioned a 56×16-ft mural for the Sam Noble Museum. Still sits rolled in storage — an open wound.</div>
-      </div>
+      <div class="tl-right"><div class="tl-year">2000</div><div class="tl-event">Trail of Tears Mural — <em>commissioned, then rejected</em></div><div class="tl-desc">University of Oklahoma commissioned a 56×16-ft mural for the Sam Noble Museum. Still sits rolled in warehouse storage — an open wound.</div></div>
     </div>
-
     <div class="tl-item">
-      <div class="tl-left"><div class="tl-callout"><div class="tl-callout-text"><strong>First inductee</strong> — Semple Museum of Native American Art HOF</div></div></div>
+      <div class="tl-left"><div class="tl-callout"><div class="tl-ctxt"><strong>First inductee</strong> — Semple Museum of Native American Art HOF</div></div></div>
       <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-      <div class="tl-right">
-        <div class="tl-year">2000s – 2022</div>
-        <div class="tl-event gold-txt">Hall of Fame inductee · biography published · gallery owner</div>
-        <div class="tl-desc">First inductee to the Semple Museum of Native American Art HOF. Full biography published by J. Robert Keating. His own gallery — Victory Contemporary — at 124 W. Palace Ave., Santa Fe.</div>
-      </div>
+      <div class="tl-right"><div class="tl-year">2000s – 2022</div><div class="tl-event gold">Hall of Fame inductee · biography published · gallery owner</div><div class="tl-desc">First inductee to the Semple Museum of Native American Art HOF. Full biography published by J. Robert Keating. Victory Contemporary at 124 W. Palace Ave., Santa Fe.</div></div>
     </div>
-
   </div>
 </section>
 
 <!-- FEATURE FILM -->
-<section class="film-section" id="film">
-  <div class="film-bg-accent"></div>
+<section class="film-sec" id="film">
+  <div class="film-bg-img"></div>
+  <div class="film-bg-over"></div>
   <div class="film-inner">
+    <div class="proj-badge">Project I</div>
+    <div class="fmt-row">
+      <div class="fmt-tag fmt-primary">Narrative Feature Film</div>
+      <div style="font-family:'Lato',sans-serif;font-size:9px;letter-spacing:2px;color:var(--cream-dim);opacity:0.35;">Alt.</div>
+      <div class="fmt-tag fmt-alt">Prestige Limited Series</div>
+    </div>
+    <h2 class="film-title">Victory</h2>
+    <p class="film-tagline">The Forrest Gump of the art world. Based on the biography by J. Robert Keating.</p>
+    <div class="divider" style="max-width:280px;margin-left:0;margin-bottom:40px;"><div class="div-line"></div><div class="div-diam"></div><div class="div-line r"></div></div>
+    <p class="body-text" style="max-width:680px;">Poteet Victory's life is episodic, picaresque, and insistently American — unfolding across decades and geographies that few audiences have ever seen on screen. From the rodeo circuit of southeastern Oklahoma to Andy Warhol's Factory to the galleries of Santa Fe, this is the story of an Indigenous man who refused to be erased.</p>
+    <p class="body-text" style="max-width:680px;">The story doesn't travel in a straight line. It circles back on itself, the way memory does. And at the center of it all is <em>Terry</em> — who arrives late in real time, but haunts the film from its opening frame. The Jenny model: her presence makes the whole arc legible in retrospect.</p>
 
-    <div class="film-title-block">
-      <div class="project-badge">Project I</div>
-      <div class="film-format-row">
-        <div class="format-tag primary">Narrative Feature Film</div>
-        <div style="font-family:'Lato',sans-serif;font-size:9px;letter-spacing:2px;color:var(--cream-dim);opacity:0.4;">Alt.</div>
-        <div class="format-tag alt">Prestige Limited Series</div>
-      </div>
-      <h2 class="film-title">Victory</h2>
-      <p class="film-tagline">The Forrest Gump of the art world. Based on the biography by J. Robert Keating.</p>
+    <div class="pillars">
+      <div class="pillar"><div class="pillar-lbl">Production Budget</div><div class="pillar-val">~$20 Million</div></div>
+      <div class="pillar"><div class="pillar-lbl">Creative Comp</div><div class="pillar-val"><em>Pollock</em> (2000)</div></div>
+      <div class="pillar"><div class="pillar-lbl">Structural Model</div><div class="pillar-val"><em>Forrest Gump</em> (1994)</div></div>
+      <div class="pillar"><div class="pillar-lbl">Target Writers</div><div class="pillar-val">The Coen Brothers</div></div>
+      <div class="pillar"><div class="pillar-lbl">IP Foundation</div><div class="pillar-val">Keating biography + Life rights</div></div>
+      <div class="pillar"><div class="pillar-lbl">Status</div><div class="pillar-val">Option &amp; shopping agreements in place</div></div>
     </div>
 
-    <div class="divider" style="margin-left:0; max-width:300px; margin-bottom:48px;">
-      <div class="divider-line"></div>
-      <div class="divider-diamond"></div>
-      <div class="divider-line r"></div>
+    <div style="margin-bottom:20px;"><span class="sec-eyebrow" style="text-align:left;">Three Actors · One Life</span><h3 style="font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:var(--cream);letter-spacing:0.08em;text-transform:uppercase;margin-top:6px;">Casting</h3></div>
+    <div class="cast-grid">
+      <div class="cast-card"><div class="cast-era">Young Poteet</div><div class="cast-name">Forrest Goodluck</div><div class="cast-desc">Idabel, the rodeo circuit, discovery by Harold Stevenson</div></div>
+      <div class="cast-card"><div class="cast-era">Middle Years</div><div class="cast-name">Martin Sensmeier</div><div class="cast-desc">Dallas, Maui, New York, Warhol's Factory, Art Students League</div></div>
+      <div class="cast-card"><div class="cast-era">Elder Poteet</div><div class="cast-name">Wes Studi</div><div class="cast-desc">Santa Fe — the palette knife years, Victory Contemporary, the living legend</div></div>
     </div>
 
-    <p class="film-body-text">Poteet Victory's life is episodic, picaresque, and insistently American — unfolding across decades and geographies that few audiences have ever seen on screen. From the rodeo circuit of southeastern Oklahoma to Andy Warhol's Factory to the galleries of Santa Fe, this is the story of an Indigenous man who refused to be erased.</p>
-
-    <p class="film-body-text">The story doesn't travel in a straight line. It circles back on itself, the way memory does. And at the center of it all is <em>Terry</em> — who arrives late in real time, but haunts the film from its opening frame. The Jenny model: her presence makes the whole arc legible in retrospect.</p>
-
-    <div class="film-pillars">
-      <div class="pillar">
-        <div class="pillar-label">Production Budget</div>
-        <div class="pillar-value">~$20 Million</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-label">Creative Comp</div>
-        <div class="pillar-value"><em>Pollock</em> (2000)</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-label">Structural Model</div>
-        <div class="pillar-value"><em>Forrest Gump</em> (1994)</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-label">Target Writers</div>
-        <div class="pillar-value">The Coen Brothers</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-label">IP Foundation</div>
-        <div class="pillar-value">Keating biography + Life rights</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-label">Status</div>
-        <div class="pillar-value">Option &amp; shopping agreements in place</div>
-      </div>
-    </div>
-
-    <!-- Casting -->
-    <div style="margin-bottom:24px;">
-      <span class="section-eyebrow" style="text-align:left;">Three Actors · One Life</span>
-      <h3 style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--cream);letter-spacing:0.08em;text-transform:uppercase;margin-top:8px;">The Casting Approach</h3>
-    </div>
-
-    <div class="casting-grid">
-      <div class="cast-card">
-        <div class="cast-era">Young Poteet</div>
-        <div class="cast-name">Forrest<br>Goodluck</div>
-        <div class="cast-desc">The early years — Idabel, the rodeo circuit, discovery by Harold Stevenson</div>
-      </div>
-      <div class="cast-card">
-        <div class="cast-era">Middle Years</div>
-        <div class="cast-name">Martin<br>Sensmeier</div>
-        <div class="cast-desc">The empire years — Dallas, Maui, New York, Warhol's Factory, Art Students League</div>
-      </div>
-      <div class="cast-card">
-        <div class="cast-era">Elder Poteet</div>
-        <div class="cast-name">Wes<br>Studi</div>
-        <div class="cast-desc">Santa Fe — the palette knife years, Victory Contemporary, the living legend</div>
-      </div>
-    </div>
-
-    <!-- Directors -->
-    <div style="margin-top:60px; margin-bottom:24px;">
-      <span class="section-eyebrow" style="text-align:left;">Director Shortlist</span>
-      <h3 style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--cream);letter-spacing:0.08em;text-transform:uppercase;margin-top:8px;">At the Helm</h3>
-    </div>
-
-    <div class="director-list">
-      <div class="director-item">
-        <div class="director-name">Sterlin Harjo</div>
-        <div class="director-note">CAA · Reservation Dogs</div>
-      </div>
-      <div class="director-item">
-        <div class="director-name">Debra Granik</div>
-        <div class="director-note">UTA · Winter's Bone, Leave No Trace</div>
-      </div>
-      <div class="director-item">
-        <div class="director-name">Andrew Dominik</div>
-        <div class="director-note">The Assassination of Jesse James, Blonde</div>
-      </div>
-      <div class="director-item">
-        <div class="director-name">Autumn de Wilde</div>
-        <div class="director-note">Emma.</div>
-      </div>
-      <div class="director-item">
-        <div class="director-name">David O. Russell</div>
-        <div class="director-note">Silver Linings Playbook, American Hustle</div>
-      </div>
+    <div style="margin-top:52px;margin-bottom:20px;"><span class="sec-eyebrow" style="text-align:left;">Director Shortlist</span><h3 style="font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:var(--cream);letter-spacing:0.08em;text-transform:uppercase;margin-top:6px;">At the Helm</h3></div>
+    <div class="dir-list">
+      <div class="dir-item"><div class="dir-name">Sterlin Harjo</div><div class="dir-note">CAA · Reservation Dogs</div></div>
+      <div class="dir-item"><div class="dir-name">Debra Granik</div><div class="dir-note">UTA · Winter's Bone, Leave No Trace</div></div>
+      <div class="dir-item"><div class="dir-name">Andrew Dominik</div><div class="dir-note">The Assassination of Jesse James, Blonde</div></div>
+      <div class="dir-item"><div class="dir-name">Autumn de Wilde</div><div class="dir-note">Emma.</div></div>
+      <div class="dir-item"><div class="dir-name">David O. Russell</div><div class="dir-note">Silver Linings Playbook, American Hustle</div></div>
     </div>
   </div>
 </section>
 
-<!-- FILM STRUCTURE -->
-<section class="structure-section">
-  <div class="structure-inner">
-    <div class="section-header" style="text-align:left; margin-bottom:40px;">
-      <span class="section-eyebrow">Structural Architecture</span>
-      <h3 style="font-family:'Cinzel',serif;font-size:clamp(24px,3vw,38px);font-weight:700;color:var(--cream);letter-spacing:0.06em;text-transform:uppercase;">How the Story Moves</h3>
-    </div>
-
-    <div class="structure-items">
-      <div class="structure-item">
-        <div class="structure-num">I</div>
-        <div>
-          <div class="structure-content-title">The Forrest Gump Model</div>
-          <div class="structure-content-text">Poteet's life is episodic, picaresque, and insistently American — unfolding across decades and geographies that few audiences have seen on screen. The story circles back on itself, the way memory does. Each chapter a new world, each world producing a man who should not exist.</div>
-        </div>
-      </div>
-      <div class="structure-item">
-        <div class="structure-num">II</div>
-        <div>
-          <div class="structure-content-title">Three Actors · One Arc</div>
-          <div class="structure-content-text">Young, middle, and elder — each with a distinct visual register, a distinct relationship to paint and identity. Authentic Indigenous casting throughout. The throughline is not continuity of face; it is continuity of spirit.</div>
-        </div>
-      </div>
-      <div class="structure-item">
-        <div class="structure-num">III</div>
-        <div>
-          <div class="structure-content-title">Terry Is the Spine</div>
-          <div class="structure-content-text">She arrives late in real time, but she haunts the film from its opening frame — appearing in fragments, half-glimpsed, before being fully earned. The Jenny model: her presence makes the whole arc legible in retrospect. She is the fifth wife. She is the key.</div>
-        </div>
-      </div>
-      <div class="structure-item">
-        <div class="structure-num">IV</div>
-        <div>
-          <div class="structure-content-title">The Trail of Tears Mural</div>
-          <div class="structure-content-text">The 56×16-foot canvas commissioned by the University of Oklahoma, rejected mid-completion when the truth became too visible, still sitting rolled in warehouse storage. The wound that cannot heal is the wound the film circles. The mural is the film's unfinished sentence.</div>
-        </div>
-      </div>
+<!-- STRUCTURAL ARCHITECTURE -->
+<section class="struct-sec">
+  <div class="struct-inner">
+    <div style="margin-bottom:36px;"><span class="sec-eyebrow">Structural Architecture</span><h3 style="font-family:'Cinzel',serif;font-size:clamp(22px,3vw,36px);font-weight:700;color:var(--cream);letter-spacing:0.06em;text-transform:uppercase;">How the Story Moves</h3></div>
+    <div class="struct-items">
+      <div class="struct-item"><div class="struct-num">I</div><div><div class="struct-ttl">The Forrest Gump Model</div><div class="struct-txt">Poteet's life is episodic, picaresque, and insistently American — unfolding across decades and geographies that few audiences have seen on screen. The story circles back on itself, the way memory does. Each chapter a new world, each world producing a man who should not exist.</div></div></div>
+      <div class="struct-item"><div class="struct-num">II</div><div><div class="struct-ttl">Three Actors · One Arc</div><div class="struct-txt">Young, middle, and elder — each with a distinct visual register, a distinct relationship to paint and identity. Authentic Indigenous casting throughout. The throughline is not continuity of face; it is continuity of spirit.</div></div></div>
+      <div class="struct-item"><div class="struct-num">III</div><div><div class="struct-ttl">Terry Is the Spine</div><div class="struct-txt">She arrives late in real time, but haunts the film from its opening frame — appearing in fragments, half-glimpsed, before being fully earned. The Jenny model: her presence makes the whole arc legible in retrospect. She is the fifth wife. She is the key.</div></div></div>
+      <div class="struct-item"><div class="struct-num">IV</div><div><div class="struct-ttl">The Trail of Tears Mural</div><div class="struct-txt">The 56×16-foot canvas commissioned by the University of Oklahoma, rejected mid-completion when the truth became too visible, still sitting rolled in warehouse storage. The wound that cannot heal is the wound the film circles. The mural is the film's unfinished sentence.</div></div></div>
     </div>
   </div>
 </section>
 
 <!-- DOCUSERIES -->
-<section class="doc-section" id="docuseries">
-  <div class="doc-bg"></div>
+<section class="doc-sec" id="docuseries">
+  <div class="doc-bg-img"></div>
+  <div class="doc-bg-over"></div>
   <div class="doc-inner">
-
-    <div class="project-badge" style="color:var(--teal-bright);">Project II</div>
-    <div class="film-format-row">
-      <div class="format-tag" style="color:var(--teal-bright);border-color:rgba(58,136,152,0.4);">Prestige Documentary Series</div>
-    </div>
-
+    <div class="proj-badge" style="color:var(--teal-bright);">Project II</div>
+    <div class="fmt-row"><div class="fmt-tag" style="color:var(--teal-bright);border-color:rgba(58,136,152,0.4);">Prestige Documentary Series</div></div>
     <h2 class="doc-title">Outside<br>the Frame</h2>
     <div class="doc-tagline">Eight Indigenous artists. Eight nations. The American West as you have never seen it.</div>
-
-    <p class="doc-body">Season One follows eight extraordinary Indigenous painters of the American West — each a master, each erased from the dominant art historical record — and asks the question Western art never dared: <em>whose story was never told, and why?</em> Poteet Victory leads the way.</p>
-
-    <p class="doc-body">The thematic spine is Poteet's Trail of Tears mural: commissioned, censored, and stored — a wound that opens in Episode 3 and resurfaces in the finale. The format: three voices per episode — Artist, Narrator, Historian.</p>
-
+    <p class="body-text" style="max-width:680px;">Season One follows eight extraordinary Indigenous painters of the American West — each a master, each erased from the dominant art historical record — and asks the question Western art never dared: <em>whose story was never told, and why?</em> Poteet Victory leads the way.</p>
+    <p class="body-text" style="max-width:680px;">The thematic spine is Poteet's Trail of Tears mural: commissioned, censored, and stored — a wound that opens in Episode 3 and resurfaces in the finale. Three voices per episode: Artist, Narrator, Historian.</p>
     <div class="doc-grid">
       <div>
-        <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal-bright);opacity:0.65;margin-bottom:16px;">Season One · 10 Episodes</div>
-        <div class="episode-list">
-          <div class="ep-item">
-            <div class="ep-num">01–03</div>
-            <div class="ep-content">
-              <div class="ep-title">Sovereign Ground &amp; The Trail We Walk</div>
-              <div class="ep-artist">Poteet Victory · Cherokee-Choctaw · 3 Episodes</div>
-            </div>
-          </div>
-          <div class="ep-item">
-            <div class="ep-num">04</div>
-            <div class="ep-content">
-              <div class="ep-title">Riding the Circle</div>
-              <div class="ep-artist">Kevin Red Star &amp; Wendy Red Star · Apsáalooke / Crow</div>
-            </div>
-          </div>
-          <div class="ep-item">
-            <div class="ep-num">05</div>
-            <div class="ep-content">
-              <div class="ep-title">The Invisible Brushstroke</div>
-              <div class="ep-artist">Emmi Whitehorse · Navajo / Diné</div>
-            </div>
-          </div>
-          <div class="ep-item">
-            <div class="ep-num">06</div>
-            <div class="ep-content">
-              <div class="ep-title">Medicine &amp; Memory</div>
-              <div class="ep-artist" style="color:var(--gold-dim);opacity:0.55;">Lakota Artist · TBD</div>
-            </div>
-          </div>
-          <div class="ep-item">
-            <div class="ep-num">07</div>
-            <div class="ep-content">
-              <div class="ep-title">What the Galleries Missed</div>
-              <div class="ep-artist">Dan Namingha · Hopi-Tewa</div>
-            </div>
-          </div>
-          <div class="ep-item">
-            <div class="ep-num">08</div>
-            <div class="ep-content">
-              <div class="ep-title">The Nation Sees Itself</div>
-              <div class="ep-artist">Nocona Burgess · Comanche Nation</div>
-            </div>
-          </div>
-          <div class="ep-item">
-            <div class="ep-num">09</div>
-            <div class="ep-content">
-              <div class="ep-title">The Birch &amp; the Sky</div>
-              <div class="ep-artist">Frank Big Bear · White Earth Band of Ojibwe</div>
-            </div>
-          </div>
-          <div class="ep-item">
-            <div class="ep-num">10</div>
-            <div class="ep-content">
-              <div class="ep-title">The Frame Is Open</div>
-              <div class="ep-artist">James Lavadour · Walla Walla Nation · Finale</div>
-            </div>
-          </div>
+        <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal-bright);opacity:0.6;margin-bottom:14px;">Season One · 10 Episodes</div>
+        <div class="ep-list">
+          <div class="ep-item"><div class="ep-num">01–03</div><div class="ep-content"><div class="ep-title">Sovereign Ground &amp; The Trail We Walk</div><div class="ep-artist">Poteet Victory · Cherokee-Choctaw · 3 Episodes</div></div></div>
+          <div class="ep-item"><div class="ep-num">04</div><div class="ep-content"><div class="ep-title">Riding the Circle</div><div class="ep-artist">Kevin Red Star &amp; Wendy Red Star · Apsáalooke / Crow</div></div></div>
+          <div class="ep-item"><div class="ep-num">05</div><div class="ep-content"><div class="ep-title">The Invisible Brushstroke</div><div class="ep-artist">Emmi Whitehorse · Navajo / Diné</div></div></div>
+          <div class="ep-item"><div class="ep-num">06</div><div class="ep-content"><div class="ep-title">Medicine &amp; Memory</div><div class="ep-artist" style="color:var(--gold-dim);opacity:0.5;">Lakota Artist · TBD</div></div></div>
+          <div class="ep-item"><div class="ep-num">07</div><div class="ep-content"><div class="ep-title">What the Galleries Missed</div><div class="ep-artist">Dan Namingha · Hopi-Tewa</div></div></div>
+          <div class="ep-item"><div class="ep-num">08</div><div class="ep-content"><div class="ep-title">The Nation Sees Itself</div><div class="ep-artist">Nocona Burgess · Comanche Nation</div></div></div>
+          <div class="ep-item"><div class="ep-num">09</div><div class="ep-content"><div class="ep-title">The Birch &amp; the Sky</div><div class="ep-artist">Frank Big Bear · White Earth Band of Ojibwe</div></div></div>
+          <div class="ep-item"><div class="ep-num">10</div><div class="ep-content"><div class="ep-title">The Frame Is Open</div><div class="ep-artist">James Lavadour · Walla Walla Nation · Finale</div></div></div>
         </div>
       </div>
-
       <div class="voices-block">
-        <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal-bright);opacity:0.65;margin-bottom:16px;">Three Voices · One Story</div>
-
-        <div class="voice-card">
-          <div class="voice-role">The Artist · Primary Voice</div>
-          <div class="voice-name">The Artist</div>
-          <div class="voice-desc">Not interview subjects. The driving intelligence of every episode — the ones whose hands are on the canvas, whose lives are the argument.</div>
-        </div>
-        <div class="voice-card">
-          <div class="voice-role">On-Camera Guide · Audience Surrogate</div>
-          <div class="voice-name">Celebrity Narrator</div>
-          <div class="voice-desc">Travels on camera with the featured artist — from studio to homeland to archive to ceremony. A culturally respected Indigenous or allied voice. TBD post-funding.</div>
-        </div>
-        <div class="voice-card">
-          <div class="voice-role">Institutional Credibility · Archival Access</div>
-          <div class="voice-name">Resident Historian</div>
-          <div class="voice-desc">Opens the archives. Translates the treaty documents. Provides the evidentiary backbone that transforms personal story into documented history. TBD post-funding.</div>
-        </div>
-
-        <div style="padding:28px;background:rgba(31,65,69,0.12);border:1px solid rgba(58,136,152,0.2);margin-top:8px;">
-          <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--teal-bright);opacity:0.6;margin-bottom:10px;">Creative Commitment</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--cream);line-height:1.6;opacity:0.8;">For Season One, the showrunner and all episode directors will be Indigenous. The creative authority behind the camera matches the cultural story being told on screen.</div>
+        <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal-bright);opacity:0.6;margin-bottom:14px;">Three Voices · One Story</div>
+        <div class="voice-card"><div class="voice-role">The Artist · Primary Voice</div><div class="voice-name">The Artist</div><div class="voice-desc">Not interview subjects. The driving intelligence of every episode — the ones whose hands are on the canvas, whose lives are the argument.</div></div>
+        <div class="voice-card"><div class="voice-role">On-Camera Guide · Audience Surrogate</div><div class="voice-name">Celebrity Narrator</div><div class="voice-desc">Travels on camera with the featured artist — from studio to homeland to archive to ceremony. A culturally respected Indigenous or allied voice. TBD post-funding.</div></div>
+        <div class="voice-card"><div class="voice-role">Institutional Credibility · Archival Access</div><div class="voice-name">Resident Historian</div><div class="voice-desc">Opens the archives. Translates the treaty documents. Provides the evidentiary backbone that transforms personal story into documented history. TBD post-funding.</div></div>
+        <div style="padding:24px;background:rgba(31,65,69,0.12);border:1px solid rgba(58,136,152,0.2);margin-top:6px;">
+          <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--teal-bright);opacity:0.6;margin-bottom:8px;">Creative Commitment</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--cream);line-height:1.6;opacity:0.78;">For Season One, the showrunner and all episode directors will be Indigenous. The creative authority behind the camera matches the cultural story being told on screen.</div>
         </div>
       </div>
     </div>
@@ -1942,164 +549,118 @@ footer {
 </section>
 
 <!-- IMMERSIVE -->
-<section class="immersive-section" id="immersive">
-  <div class="immersive-bg"></div>
-  <div class="immersive-inner">
-
-    <div class="project-badge">Project III</div>
-    <div class="film-format-row">
-      <div class="format-tag primary">Immersive Art Experience</div>
+<section class="imm-sec" id="immersive">
+  <div class="imm-bg-img"></div>
+  <div class="imm-bg-over"></div>
+  <div class="imm-inner">
+    <div class="proj-badge">Project III</div>
+    <div class="fmt-row"><div class="fmt-tag fmt-primary">Immersive Art Experience</div></div>
+    <h2 class="imm-title">The Invisible<br>Canvas</h2>
+    <div class="imm-alts">
+      <span class="imm-alt-lbl">Alt. Titles</span>
+      <span class="imm-alt-t">Sovereign Vision</span>
+      <span class="imm-alt-t">Enter the Sacred</span>
     </div>
+    <p class="imm-tagline">Indigenous art transformed into monumental immersive experience — with celebrated immersive artist Max Sicarri.</p>
+    <p class="body-text" style="max-width:680px;">The paintings of Poteet Victory and fellow Indigenous masters, rendered at architectural scale through cutting-edge immersive technology. Art that has been kept outside the frame — marginalized, censored, or simply never shown — made impossible to look away from.</p>
+    <p class="body-text" style="max-width:680px;"><em>The Invisible Canvas</em> operates as a standalone cultural event and as a live complement to both the feature film and the docuseries — extending the slate's reach into the experiential economy and creating a physical presence that neither film nor television can replicate.</p>
+    <div class="sicarri-block"><div class="sicarri-lbl">Creative Lead</div><div class="sicarri-name">Max Sicarri</div><div class="sicarri-desc">Celebrated large-scale immersive artist · In development</div></div>
+  </div>
+</section>
 
-    <h2 class="immersive-title">The Invisible<br>Canvas</h2>
-
-    <div class="immersive-alts">
-      <span class="immersive-alt-label">Alt. Titles</span>
-      <span class="immersive-alt-title">Sovereign Vision</span>
-      <span class="immersive-alt-title">Enter the Sacred</span>
+<!-- KICKOFF EVENT -->
+<section class="event-sec" id="event">
+  <div class="event-bg-img"></div>
+  <div class="event-inner">
+    <div class="event-left">
+      <div class="event-title">Victory on the Big Screen</div>
+      <div class="event-subtitle">Kickoff Party — You are warmly invited</div>
+      <div class="event-desc">Celebrate the launch of landmark multi-media projects honoring the art and life of Cherokee-Choctaw fine art painter Poteet Victory. Join us at his gallery in the heart of Santa Fe. Free and open to all — no RSVP required.</div>
+      <div class="event-cta"><a href="http://victorycontemporary.com" target="_blank" rel="noopener">Victory Contemporary Gallery →</a></div>
     </div>
-
-    <p class="immersive-tagline">Indigenous art transformed into monumental immersive experience — with celebrated immersive artist Max Sicarri.</p>
-
-    <p class="immersive-body">The paintings of Poteet Victory and fellow Indigenous masters, rendered at architectural scale through cutting-edge immersive technology. Art that has been kept outside the frame — marginalized, censored, or simply never shown — made impossible to look away from.</p>
-
-    <p class="immersive-body"><em>The Invisible Canvas</em> operates as a standalone cultural event and as a live complement to both the feature film and the docuseries — extending the slate's reach into the experiential economy and creating a physical presence that neither film nor television can replicate.</p>
-
-    <div class="sicarri-block">
-      <div class="sicarri-label">Creative Lead</div>
-      <div class="sicarri-name">Max Sicarri</div>
-      <div class="sicarri-desc">Celebrated large-scale immersive artist · In development</div>
+    <div class="event-right">
+      <div class="event-detail"><div class="event-detail-lbl">Date</div><div class="event-detail-val">May 30th<small>Saturday 2026</small></div></div>
+      <div class="event-detail"><div class="event-detail-lbl">Time</div><div class="event-detail-val">11am – 3pm<small>Open House</small></div></div>
+      <div class="event-detail"><div class="event-detail-lbl">Admission</div><div class="event-detail-val">Free<small>No RSVP Required</small></div></div>
+      <div class="event-detail"><div class="event-detail-lbl">Location</div><div class="event-detail-val">Victory Contemporary Gallery<small>124 W. Palace Ave., Santa Fe, NM 87501</small></div></div>
+      <div class="event-detail"><div class="event-detail-lbl">Phone</div><div class="event-detail-val">(505) 983-8589<small>victorycontemporary.com</small></div></div>
+      <div class="event-detail"><div class="event-detail-lbl">Presented</div><div class="event-detail-val" style="font-size:14px;">Son of a Botanist Productions<small>&amp; Name &amp; Like, Inc.</small></div></div>
     </div>
   </div>
 </section>
 
-<!-- WHY THIS SLATE -->
-<section class="market-section">
+<!-- MARKET -->
+<section class="market-sec">
   <div class="market-inner">
-    <div class="section-header" style="text-align:left; margin-bottom:40px;">
-      <span class="section-eyebrow">Market Context</span>
-      <h2 class="section-title" style="font-size:clamp(28px,3.5vw,44px);">Why This Slate Matters</h2>
-    </div>
-
-    <p class="market-body">The market for prestige Indigenous storytelling has arrived. <em>Reservation Dogs</em>, <em>Prey</em>, and <em>Killers of the Flower Moon</em> have demonstrated that audiences seek out these stories when made with authenticity and craft. What has not yet been made is the definitive portrait of a living Indigenous visual artist — someone whose biography is as compelling as the work itself, and whose IP has been properly secured.</p>
-
-    <p class="market-body" style="margin-top:20px;">This slate is not a single project betting on a single format. It is a three-track strategy across narrative film, prestige documentary, and immersive experience — each self-standing, each reinforcing the others, each approaching the same subject from a different angle and reaching a different audience.</p>
-
-    <div style="margin-top:36px;">
-      <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);opacity:0.6;margin-bottom:16px;">Comparable Works</div>
-      <div class="market-comps">
-        <div class="comp-pill">Pollock (2000)</div>
-        <div class="comp-pill">Reservation Dogs</div>
-        <div class="comp-pill">Killers of the Flower Moon</div>
-        <div class="comp-pill">Prey (2022)</div>
-      </div>
-    </div>
+    <div style="margin-bottom:0;"><span class="sec-eyebrow">Market Context</span><h2 class="sec-title" style="font-size:clamp(26px,3.5vw,42px);">Why This Slate Matters</h2></div>
+    <p class="body-text" style="margin-top:28px;">The market for prestige Indigenous storytelling has arrived. <em>Reservation Dogs</em>, <em>Prey</em>, and <em>Killers of the Flower Moon</em> have demonstrated that audiences seek out these stories when made with authenticity and craft. What has not yet been made is the definitive portrait of a living Indigenous visual artist — someone whose biography is as compelling as the work itself, and whose IP has been properly secured.</p>
+    <p class="body-text">This slate is a three-track strategy across narrative film, prestige documentary, and immersive experience — each self-standing, each reinforcing the others, each approaching the same subject from a different angle and reaching a different audience.</p>
+    <div style="margin-top:10px;"><div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);opacity:0.6;margin-bottom:14px;">Comparable Works</div>
+    <div class="comp-row">
+      <div class="comp-pill">Pollock (2000)</div>
+      <div class="comp-pill">Reservation Dogs</div>
+      <div class="comp-pill">Killers of the Flower Moon</div>
+      <div class="comp-pill">Prey (2022)</div>
+    </div></div>
   </div>
 </section>
 
-<!-- IP FOUNDATION -->
-<section class="legal-section">
+<!-- LEGAL -->
+<section class="legal-sec">
   <div class="legal-inner">
-    <div class="section-header" style="text-align:left; margin-bottom:0;">
-      <span class="section-eyebrow">Legal Foundation</span>
-      <h2 class="section-title" style="font-size:clamp(24px,3vw,38px);">IP &amp; Rights Structure</h2>
-      <div class="section-subtitle" style="color:var(--cream-dim);opacity:0.6;font-size:16px;">Son of a Botanist Productions LLC holds a negotiated option on the Keating biography covering feature film and television adaptation rights.</div>
-    </div>
-
+    <div><span class="sec-eyebrow">Legal Foundation</span><h2 class="sec-title" style="font-size:clamp(22px,3vw,36px);">IP &amp; Rights Structure</h2><div class="sec-sub" style="color:var(--cream-dim);opacity:0.55;font-size:16px;">Son of a Botanist Productions LLC holds a negotiated option on the Keating biography covering feature film and television adaptation rights.</div></div>
     <div class="legal-grid">
-      <div class="legal-item">
-        <div class="legal-label">Option Fee</div>
-        <div class="legal-value">$3,500 · 18 months<br>$5,000 extension available</div>
-      </div>
-      <div class="legal-item">
-        <div class="legal-label">Buyout Structure</div>
-        <div class="legal-value">Flat $90,000<br>No backend · No net profits</div>
-      </div>
-      <div class="legal-item">
-        <div class="legal-label">Governing Law</div>
-        <div class="legal-value">California<br>Los Angeles Arbitration</div>
-      </div>
+      <div class="legal-item"><div class="legal-lbl">Option Fee</div><div class="legal-val">$3,500 · 18 months<br>$5,000 extension available</div></div>
+      <div class="legal-item"><div class="legal-lbl">Buyout Structure</div><div class="legal-val">Flat $90,000<br>No backend · No net profits</div></div>
+      <div class="legal-item"><div class="legal-lbl">Governing Law</div><div class="legal-val">California<br>Los Angeles Arbitration</div></div>
     </div>
   </div>
 </section>
 
 <!-- TEAM -->
-<section class="team-section" id="team">
+<section class="team-sec" id="team">
   <div class="team-inner">
-    <div class="section-header">
-      <span class="section-eyebrow">The Team</span>
-      <h2 class="section-title">Leadership</h2>
-    </div>
-
+    <div style="text-align:center;margin-bottom:56px;"><span class="sec-eyebrow">The Team</span><h2 class="sec-title">Leadership</h2></div>
     <div class="team-grid">
-      <div class="team-card">
-        <div class="team-role">Creator · Producer</div>
-        <div class="team-name">Marc Sternberg</div>
-        <div class="team-bio">MA, MBA, MFA (Chapman University · Dodge College of Film and Media Arts). Fulbright Specialist 2024–2027. Founder of Son of a Botanist Productions, with a slate of 10+ properties documenting how historically underrepresented communities use excellence to reclaim their place in dominant cultural narratives. Producer, 2025 Infinity Festival Monolith Awards. 200+ commercial productions. Negotiated all IP rights; leads creative development across the full slate.</div>
-      </div>
-      <div class="team-card">
-        <div class="team-role">Co-Producer · Outside the Frame &amp; The Invisible Canvas</div>
-        <div class="team-name">Andrea Bari</div>
-        <div class="team-bio">Entertainment attorney, producer, and educator with over 12 years of industry experience. Behind-the-camera credits include major motion pictures. Former in-house roles at De Line Pictures (Warner Bros.) and Tom Hanks' Playtone. Legal research for the United Nations Special Rapporteur in Cultural Rights. Co-Executive Producer, 2025 Monolith Awards. Head of XR, Infinity Festival. Entertainment law faculty at UCLA, Chapman University, Musicians Institute, and University of La Verne.</div>
-      </div>
-      <div class="team-card">
-        <div class="team-role">Biographer · Stakeholder</div>
-        <div class="team-name">J. Robert Keating</div>
-        <div class="team-bio">Author of <em>Poteet Victory</em> (Atmosphere Press, 2022) — the primary source and IP foundation for the entire slate. Active collaborator in the development of all three projects.</div>
-      </div>
-      <div class="team-card">
-        <div class="team-role">Subject · Principal</div>
-        <div class="team-name">Poteet Victory</div>
-        <div class="team-bio">Cherokee-Choctaw fine art painter, Santa Fe. First inductee, Semple Museum of Native American Art HOF. Smithsonian collection artist. Owner, Victory Contemporary gallery. Directly engaged in the development of all three projects on this slate.</div>
-      </div>
+      <div class="team-card"><div class="team-role">Creator · Producer</div><div class="team-name">Marc Sternberg</div><div class="team-bio">MA, MBA, MFA (Chapman University · Dodge College of Film and Media Arts). Fulbright Specialist 2024–2027. Founder of Son of a Botanist Productions, with a slate of 10+ properties documenting how historically underrepresented communities use excellence to reclaim their place in dominant cultural narratives. Producer, 2025 Infinity Festival Monolith Awards. 200+ commercial productions. Negotiated all IP rights; leads creative development across the full slate.</div></div>
+      <div class="team-card"><div class="team-role">Co-Producer · Outside the Frame &amp; The Invisible Canvas</div><div class="team-name">Andrea Bari</div><div class="team-bio">Entertainment attorney, producer, and educator with over 12 years of industry experience. Former in-house roles at De Line Pictures (Warner Bros.) and Tom Hanks' Playtone. Legal research for the UN Special Rapporteur in Cultural Rights. Co-Executive Producer, 2025 Monolith Awards. Head of XR, Infinity Festival. Entertainment law faculty at UCLA, Chapman University, Musicians Institute, and University of La Verne.</div></div>
+      <div class="team-card"><div class="team-role">Biographer · Stakeholder</div><div class="team-name">J. Robert Keating</div><div class="team-bio">Author of <em>Poteet Victory</em> (Atmosphere Press, 2022) — the primary source and IP foundation for the entire slate. Active collaborator in the development of all three projects.</div></div>
+      <div class="team-card"><div class="team-role">Subject · Principal</div><div class="team-name">Poteet Victory</div><div class="team-bio">Cherokee-Choctaw fine art painter, Santa Fe. First inductee, Semple Museum of Native American Art HOF. Smithsonian collection artist. Owner, Victory Contemporary gallery. Directly engaged in the development of all three projects on this slate.</div></div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="contact-bg"></div>
+<section class="contact-sec" id="contact">
+  <div class="contact-bg-img"></div>
+  <div class="contact-bg-over"></div>
   <div class="contact-inner">
-
-    <div class="divider" style="margin: 0 auto 40px;">
-      <div class="divider-line"></div>
-      <div class="divider-diamond"></div>
-      <div class="divider-line r"></div>
-    </div>
-
+    <div class="divider" style="max-width:320px;margin:0 auto 36px;"><div class="div-line"></div><div class="div-diam"></div><div class="div-line r"></div></div>
     <h2 class="contact-title">Partner With Us</h2>
     <p class="contact-tagline">The legal groundwork is complete. What moves forward is creative and financial.</p>
-
-    <div style="font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.7;color:var(--cream);opacity:0.7;margin-bottom:48px;max-width:580px;margin-left:auto;margin-right:auto;">
-      We are seeking creative and financial partners across all three tracks. For <em>Victory</em>: writer attachment and development financing toward a first-draft screenplay. For <em>Outside the Frame</em>: network or platform conversation. For <em>The Invisible Canvas</em>: venue, sponsorship, and co-production partners.
-    </div>
-
-    <div class="contact-info">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.72;color:var(--cream);opacity:0.68;margin-bottom:44px;">We are seeking creative and financial partners across all three tracks. For <em>Victory</em>: writer attachment and development financing toward a first-draft screenplay. For <em>Outside the Frame</em>: network or platform conversation. For <em>The Invisible Canvas</em>: venue, sponsorship, and co-production partners.</div>
+    <div class="contact-block">
       <div class="contact-name">Marc Sternberg · Son of a Botanist Productions LLC</div>
-      <div class="contact-detail"><a href="mailto:marcsternberg13@gmail.com">marcsternberg13@gmail.com</a></div>
-      <div class="contact-detail"><a href="tel:4805674021">(480) 567-4021</a></div>
-      <div class="contact-detail" style="margin-top:8px;">Andrea Bari · Name and Like</div>
-      <div class="contact-detail"><a href="mailto:bariandrea@gmail.com">bariandrea@gmail.com</a></div>
-      <div class="contact-detail"><a href="tel:3233526352">(323) 352-6352</a></div>
+      <div class="contact-det" style="margin-top:4px;"><a href="mailto:marcsternberg13@gmail.com">marcsternberg13@gmail.com</a></div>
+      <div class="contact-det"><a href="tel:4805674021">(480) 567-4021</a></div>
     </div>
-
-    <div class="contact-cta-group">
-      <a href="mailto:marcsternberg13@gmail.com" class="cta-btn cta-btn-primary">Contact the Producers</a>
-      <a href="http://victorycontemporary.com" target="_blank" rel="noopener" class="cta-btn cta-btn-outline">Victory Contemporary Gallery</a>
+    <div class="contact-block">
+      <div class="contact-name">Andrea Bari · Name &amp; Like, Inc.</div>
+      <div class="contact-det" style="margin-top:4px;"><a href="mailto:bariandrea@gmail.com">bariandrea@gmail.com</a></div>
+      <div class="contact-det"><a href="tel:3233526352">(323) 352-6352</a></div>
     </div>
-
-    <div class="divider" style="margin: 60px auto 0;">
-      <div class="divider-line"></div>
-      <div class="divider-diamond"></div>
-      <div class="divider-line r"></div>
+    <div class="cta-group">
+      <a href="mailto:marcsternberg13@gmail.com" class="cta-btn cta-gold">Contact the Producers</a>
+      <a href="http://victorycontemporary.com" target="_blank" rel="noopener" class="cta-btn cta-out">Victory Contemporary Gallery</a>
     </div>
+    <div class="divider" style="max-width:320px;margin:56px auto 0;"><div class="div-line"></div><div class="div-diam"></div><div class="div-line r"></div></div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">Son of a Botanist<br>Productions LLC</div>
-  <div class="footer-center">
+  <div class="footer-ctr">
     <div class="footer-series"><em>Victory on the Big Screen</em></div>
     <div class="footer-url">victoryonthebigscreen.com · Santa Fe · 2026</div>
   </div>
@@ -2107,33 +668,26 @@ footer {
 </footer>
 
 <script>
-// Intersection Observer for scroll-triggered fade-ins on non-hero sections
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
     }
   });
-}, { threshold: 0.1 });
+},{threshold:0.08});
 
-document.querySelectorAll('.tl-item, .pillar, .cast-card, .director-item, .ep-item, .team-card, .voice-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-  observer.observe(el);
+document.querySelectorAll('.tl-item,.pillar,.cast-card,.dir-item,.ep-item,.team-card,.voice-card,.honor-card,.struct-item,.gallery-item,.event-detail').forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(18px)';
+  el.style.transition='opacity 0.65s ease, transform 0.65s ease';
+  obs.observe(el);
 });
 
-// Nav scroll behavior
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('nav');
-  if (window.scrollY > 80) {
-    nav.style.background = 'rgba(10, 6, 4, 0.97)';
-  } else {
-    nav.style.background = 'rgba(10, 6, 4, 0.92)';
-  }
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.background=
+    window.scrollY>80?'rgba(10,6,4,0.97)':'rgba(10,6,4,0.92)';
 });
 </script>
-
 </body>
 </html>
