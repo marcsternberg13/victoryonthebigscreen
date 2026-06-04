@@ -138,17 +138,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .pillar-lbl{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:10px}
 .pillar-val{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--cream);line-height:1.4}
 .pillar-val em{font-style:italic;color:var(--gold);font-weight:400}
-.cast-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:40px 0}
-.cast-card{background:rgba(200,146,42,0.04);border:1px solid rgba(200,146,42,0.14);padding:28px 20px;text-align:center;transition:border-color 0.3s}
-.cast-card:hover{border-color:rgba(200,146,42,0.32)}
-.cast-era{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--burg-lt);opacity:0.8;margin-bottom:10px}
-.cast-name{font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--cream);letter-spacing:1px;margin-bottom:7px;line-height:1.2}
-.cast-desc{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--cream-dim);opacity:0.6;line-height:1.4}
-.dir-list{display:flex;flex-direction:column;gap:2px;margin:28px 0}
-.dir-item{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:rgba(200,146,42,0.03);border:1px solid rgba(200,146,42,0.1);transition:background 0.2s}
-.dir-item:hover{background:rgba(200,146,42,0.07)}
-.dir-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--cream)}
-.dir-note{font-family:'Lato',sans-serif;font-size:10px;font-weight:300;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);opacity:0.5}
+
+/* COMPS GRID */
+.comps-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-bottom:56px;border:1px solid rgba(200,146,42,0.12)}
+.comp-card{padding:22px 24px;background:rgba(200,146,42,0.03);border-right:1px solid rgba(200,146,42,0.08)}
+.comp-card:nth-child(even){border-right:none}
+.comp-card:nth-child(n+3){border-top:1px solid rgba(200,146,42,0.08)}
+.comp-title{font-family:'Cinzel',serif;font-size:12px;font-weight:600;color:var(--cream);letter-spacing:1px;margin-bottom:6px}
+.comp-title span{font-family:'Lato',sans-serif;font-size:10px;font-weight:400;letter-spacing:1px;color:var(--gold-dim);opacity:0.7;margin-left:8px}
+.comp-note{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--cream-dim);opacity:0.7;line-height:1.5}
 
 /* STRUCTURE */
 .struct-sec{padding:80px 60px;background:rgba(200,146,42,0.02);border-top:1px solid rgba(200,146,42,0.1);border-bottom:1px solid rgba(200,146,42,0.1)}
@@ -212,15 +210,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .event-cta a{display:inline-block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:14px 28px;background:var(--gold);color:var(--ink);text-decoration:none;border:1px solid var(--gold);transition:all 0.2s}
 .event-cta a:hover{background:var(--gold-lt)}
 
-/* LEGAL */
-.legal-sec{padding:72px 60px;background:rgba(200,146,42,0.025);border-top:1px solid rgba(200,146,42,0.1)}
-.legal-inner{max-width:900px;margin:0 auto}
-.legal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:44px;border:1px solid rgba(200,146,42,0.12)}
-.legal-item{padding:26px 22px;background:rgba(200,146,42,0.03);border-right:1px solid rgba(200,146,42,0.1)}
-.legal-item:last-child{border-right:none}
-.legal-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);opacity:0.55;margin-bottom:7px}
-.legal-val{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--cream);line-height:1.4}
-
 /* MARKET */
 .market-sec{padding:72px 60px;background:rgba(92,26,14,0.07);border-top:1px solid rgba(92,26,14,0.3);border-bottom:1px solid rgba(92,26,14,0.3)}
 .market-inner{max-width:900px;margin:0 auto}
@@ -275,9 +264,9 @@ footer{background:var(--dark);border-top:1px solid rgba(200,146,42,0.25);padding
   nav{padding:14px 20px}
   .nav-links{display:none}
   .hero,.subject-sec,.film-sec,.doc-sec,.imm-sec,.team-sec,.contact-sec{padding:80px 20px}
-  .tl-sec,.gallery-sec,.event-sec,.legal-sec,.market-sec,.struct-sec{padding:60px 20px}
+  .tl-sec,.gallery-sec,.event-sec,.market-sec,.struct-sec{padding:60px 20px}
   .subject-inner,.doc-grid,.team-grid,.event-inner{grid-template-columns:1fr}
-  .pillars,.cast-grid,.legal-grid{grid-template-columns:1fr}
+  .pillars,.comps-grid{grid-template-columns:1fr}
   .gallery-grid{columns:2}
   footer{flex-direction:column;gap:18px;text-align:center;padding:36px 20px}
   .footer-right{text-align:center}
@@ -296,7 +285,7 @@ footer{background:var(--dark);border-top:1px solid rgba(200,146,42,0.25);padding
     <li><a href="#film">The Film</a></li>
     <li><a href="#subject">Poteet Victory</a></li>
     <li><a href="#docuseries">Outside the Frame</a></li>
-    <li><a href="#immersive">Invisible Canvas</a></li>
+    <li><a href="#immersive">The Invisible Canvas</a></li>
     <li><a href="#event">Kickoff Event</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Contact</a>
@@ -447,7 +436,7 @@ footer{background:var(--dark);border-top:1px solid rgba(200,146,42,0.25);padding
     <div class="tl-item">
       <div class="tl-left"><div class="tl-callout"><div class="tl-ctxt">Mural <strong>rejected mid-completion</strong> — imagery too controversial; funding collapsed after 9/11</div></div></div>
       <div class="tl-dot-wrap"><div class="tl-dot rust"></div></div>
-      <div class="tl-right"><div class="tl-year">2000</div><div class="tl-event">Trail of Tears Mural — <em>commissioned, then rejected</em></div><div class="tl-desc">University of Oklahoma commissioned a 56×16-ft mural for the Sam Noble Museum. Still sits rolled in warehouse storage — an open wound.</div></div>
+      <div class="tl-right"><div class="tl-year">2000</div><div class="tl-event">Trail of Tears Mural — <em>commissioned, then rejected</em></div><div class="tl-desc">University of Oklahoma commissioned a monumental mural for the Sam Noble Museum. Still sits rolled in warehouse storage — an open wound.</div></div>
     </div>
     <div class="tl-item">
       <div class="tl-left"><div class="tl-callout"><div class="tl-ctxt"><strong>First inductee</strong> — Semple Museum of Native American Art HOF</div></div></div>
@@ -471,20 +460,41 @@ footer{background:var(--dark);border-top:1px solid rgba(200,146,42,0.25);padding
     <h2 class="film-title">Victory</h2>
     <p class="film-tagline">The Forrest Gump of the art world. Based on the biography by J. Robert Keating.</p>
     <div class="divider" style="max-width:280px;margin-left:0;margin-bottom:40px;"><div class="div-line"></div><div class="div-diam"></div><div class="div-line r"></div></div>
-    <p class="body-text" style="max-width:680px;">Poteet Victory's life is episodic, picaresque, and insistently American — unfolding across decades and geographies that few audiences have ever seen on screen. From the rodeo circuit of southeastern Oklahoma to Andy Warhol's Factory to the galleries of Santa Fe, this is the story of an Indigenous man who refused to be erased.</p>
-    <p class="body-text" style="max-width:680px;">The story doesn't travel in a straight line. It circles back on itself, the way memory does. And at the center of it all is <em>Terry</em> — who arrives late in real time, but haunts the film from its opening frame. The Jenny model: her presence makes the whole arc legible in retrospect.</p>
 
-    <div class="pillars">
-      <div class="pillar"><div class="pillar-lbl">Production Budget</div><div class="pillar-val">~$10 Million</div></div>
-      <div class="pillar"><div class="pillar-lbl">Creative Comp</div><div class="pillar-val"><em>Pollock</em> (2000)</div></div>
+    <p class="body-text" style="max-width:680px;">The film opens on a single image: a chalk skeleton of a horse. A small boy kneels beside it, watching Harold Stevenson draw. <em>Know the insides before you draw the exterior.</em> Poteet Victory is seventy-eight years old. He has never forgotten that lesson — or the man who gave it to him.</p>
+    <p class="body-text" style="max-width:680px;">Born in Idabel, Oklahoma, raised by his Cherokee-Choctaw grandmother Willie Victory ninety miles from the end of the Trail of Tears. He rides bulls at thirteen. He builds a T-shirt empire in Dallas — Frito-Lay, CBS Records, Waylon Jennings, Willie Nelson — then walks away. Harold Stevenson calls ahead to Andy Warhol. Poteet boards a plane in a straw cowboy hat, studies at the Art Students League, and lives at the Dakota alongside John Lennon and Yoko Ono. Neither Poteet nor Harold thinks much of Warhol. This is their private running joke.</p>
+    <p class="body-text" style="max-width:680px;">He arrives in Santa Fe in 1989 with nothing. He bartends. He hits bottom. Named <em>Does Not Hide the Truth</em> by medicine man Bear Heart Williams, he picks up the palette knife — abandons brushes entirely — and invents a style unlike anything in the Western canon. He is commissioned to paint a Trail of Tears mural by the University of Oklahoma. He completes two panels before 9/11 kills the funding and the center panel is deemed disrespectful. The mural still sits rolled in warehouse storage. The wound that cannot heal is the wound the film circles.</p>
+    <p class="body-text" style="max-width:680px;">In 2008, at a Pizza Hut in Idabel, he sees Terry across the room. <em>I am going to call on you.</em> She is his fifth wife and his last. She arrives late in real time — but she haunts the film from its opening frame. Her presence makes the whole arc legible in retrospect.</p>
+    <p class="body-text" style="max-width:680px;font-style:italic;opacity:0.7;">Not bad for a kid from Idabel.</p>
+
+    <div class="pillars" style="grid-template-columns:repeat(3,1fr);">
+      <div class="pillar"><div class="pillar-lbl">Production Budget</div><div class="pillar-val">$8–10M</div></div>
+      <div class="pillar"><div class="pillar-lbl">Creative Comps</div><div class="pillar-val"><em>Frida</em> (2002) · <em>Pollock</em> (2000)</div></div>
       <div class="pillar"><div class="pillar-lbl">Structural Model</div><div class="pillar-val"><em>Forrest Gump</em> (1994)</div></div>
-      <div class="pillar"><div class="pillar-lbl">Target Writers <span style="color:var(--burg-lt);font-size:10px;letter-spacing:1px;">· Not Confirmed</span></div><div class="pillar-val">The Coen Brothers ***</div></div>
       <div class="pillar"><div class="pillar-lbl">IP Foundation</div><div class="pillar-val">Keating biography + Life rights</div></div>
-      <div class="pillar"><div class="pillar-lbl">Status</div><div class="pillar-val">Option &amp; shopping agreements in place</div></div>
+      <div class="pillar"><div class="pillar-lbl">Status</div><div class="pillar-val">Option agreement in place</div></div>
+      <div class="pillar"><div class="pillar-lbl">Release Target</div><div class="pillar-val">Festival / Prestige Platform</div></div>
     </div>
 
-
-
+    <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);opacity:0.7;margin-bottom:20px;">Film Comparables</div>
+    <div class="comps-grid">
+      <div class="comp-card">
+        <div class="comp-title">Frida <span>· 2002 · $56M Worldwide</span></div>
+        <div class="comp-note">Closest structural model. Artist biography, episodic life, non-linear memory. Prestige platform release at $12M budget.</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-title">Pollock <span>· 2000 · Academy Award</span></div>
+        <div class="comp-note">Painter biography, addiction arc, palette knife parallel. Budget efficiency proof at the festival tier.</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-title">Killers of the Flower Moon <span>· 2023 · $157M Worldwide</span></div>
+        <div class="comp-note">Indigenous prestige is not a niche. The market exists, the audience is hungry, and the definitive Indigenous visual artist portrait has not yet been made.</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-title">Reservation Dogs <span>· FX on Hulu</span></div>
+        <div class="comp-note">Authentic Indigenous voice earning critical and audience acclaim. Proof that the creative conversation has permanently shifted.</div>
+      </div>
+    </div>
 
   </div>
 </section>
@@ -496,8 +506,8 @@ footer{background:var(--dark);border-top:1px solid rgba(200,146,42,0.25);padding
     <div class="struct-items">
       <div class="struct-item"><div class="struct-num">I</div><div><div class="struct-ttl">The Forrest Gump Model</div><div class="struct-txt">Poteet's life is episodic, picaresque, and insistently American — unfolding across decades and geographies that few audiences have seen on screen. The story circles back on itself, the way memory does. Each chapter a new world, each world producing a man who should not exist.</div></div></div>
       <div class="struct-item"><div class="struct-num">II</div><div><div class="struct-ttl">Three Actors · One Arc</div><div class="struct-txt">Young, middle, and elder — each with a distinct visual register, a distinct relationship to paint and identity. Authentic Indigenous casting throughout. The throughline is not continuity of face; it is continuity of spirit.</div></div></div>
-      <div class="struct-item"><div class="struct-num">III</div><div><div class="struct-ttl">Terry Is the Spine</div><div class="struct-txt">She arrives late in real time, but haunts the film from its opening frame — appearing in fragments, half-glimpsed, before being fully earned. The Jenny model: her presence makes the whole arc legible in retrospect. She is the fifth wife. She is the key.</div></div></div>
-      <div class="struct-item"><div class="struct-num">IV</div><div><div class="struct-ttl">The Trail of Tears Mural</div><div class="struct-txt">The 56×16-foot canvas commissioned by the University of Oklahoma, rejected mid-completion when the truth became too visible, still sitting rolled in warehouse storage. The wound that cannot heal is the wound the film circles. The mural is the film's unfinished sentence.</div></div></div>
+      <div class="struct-item"><div class="struct-num">III</div><div><div class="struct-ttl">Terry Is the Spine</div><div class="struct-txt">She arrives late in real time, but haunts the film from its opening frame — appearing in fragments, half-glimpsed, before being fully earned. Her presence makes the whole arc legible in retrospect. She is the fifth wife. She is the key.</div></div></div>
+      <div class="struct-item"><div class="struct-num">IV</div><div><div class="struct-ttl">The Trail of Tears Mural</div><div class="struct-txt">Commissioned by the University of Oklahoma, rejected mid-completion when the truth became too visible, still sitting rolled in warehouse storage. The wound that cannot heal is the wound the film circles. The mural is the film's unfinished sentence.</div></div></div>
     </div>
   </div>
 </section>
@@ -556,8 +566,16 @@ footer{background:var(--dark);border-top:1px solid rgba(200,146,42,0.25);padding
     </div>
     <p class="imm-tagline">Indigenous art transformed into monumental immersive experience — with celebrated immersive artist Massimiliano ("Max") Siccardi.</p>
     <p class="body-text" style="max-width:680px;">The paintings of Poteet Victory and fellow Indigenous masters, rendered at architectural scale through cutting-edge immersive technology. Art that has been kept outside the frame — marginalized, censored, or simply never shown — made impossible to look away from.</p>
-    <p class="body-text" style="max-width:680px;"><em>The Invisible Canvas</em> operates as a standalone cultural event and as a live complement to both the feature film and the docuseries — extending the slate's reach into the experiential economy and creating a physical presence that neither film nor television can replicate.</p>
+    <p class="body-text" style="max-width:680px;"><em>The Invisible Canvas</em> operates as a standalone cultural event and as a live complement to both the feature film and the docuseries — extending the slate's reach into the experiential economy and creating a physical presence that neither film nor television can replicate. Following its inaugural run, the show travels independently as a touring immersive experience.</p>
     <div class="sicarri-block"><div class="sicarri-lbl">Creative Lead</div><div class="sicarri-name">Massimiliano ("Max") Siccardi</div><div class="sicarri-desc">Celebrated large-scale immersive artist · In development</div></div>
+
+    <div style="margin-top:44px;padding:32px 36px;border:1px solid rgba(200,146,42,0.25);background:rgba(200,146,42,0.04);max-width:680px;">
+      <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);opacity:0.9;margin-bottom:10px;">Inaugural Presentation · August 2026</div>
+      <div style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--cream);letter-spacing:0.05em;margin-bottom:6px;">Celebrate Santa Fe:<br>Poteet Victory</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--gold);margin-bottom:16px;line-height:1.4;">The inaugural edition of an annual immersive art event in Santa Fe, New Mexico — honoring a different master artist each August.</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.72;color:var(--cream);opacity:0.75;margin-bottom:24px;">The first year features Poteet Victory — his paintings rendered at architectural scale across Santa Fe's landmark venues during Indian Market season. A city-wide cultural event presented in partnership with the City of Santa Fe.</div>
+      <a href="https://www.celebratesantafe.com" target="_blank" rel="noopener" style="display:inline-block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:12px 24px;color:var(--ink);background:var(--gold);border:1px solid var(--gold);text-decoration:none;transition:background 0.2s;">celebratesantafe.com →</a>
+    </div>
   </div>
 </section>
 
@@ -590,6 +608,7 @@ footer{background:var(--dark);border-top:1px solid rgba(200,146,42,0.25);padding
     <p class="body-text">This slate is a three-track strategy across narrative film, prestige documentary, and immersive experience — each self-standing, each reinforcing the others, each approaching the same subject from a different angle and reaching a different audience.</p>
     <div style="margin-top:10px;"><div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);opacity:0.6;margin-bottom:14px;">Comparable Works</div>
     <div class="comp-row">
+      <div class="comp-pill">Frida (2002)</div>
       <div class="comp-pill">Pollock (2000)</div>
       <div class="comp-pill">Reservation Dogs</div>
       <div class="comp-pill">Killers of the Flower Moon</div>
@@ -597,8 +616,6 @@ footer{background:var(--dark);border-top:1px solid rgba(200,146,42,0.25);padding
     </div></div>
   </div>
 </section>
-
-
 
 <!-- TEAM -->
 <section class="team-sec" id="team">
@@ -609,7 +626,7 @@ footer{background:var(--dark);border-top:1px solid rgba(200,146,42,0.25);padding
       <div class="team-card"><div class="team-role">Producer</div><div class="team-name">Andrea Bari</div><div class="team-bio">Entertainment attorney, producer, and educator with over 12 years of industry experience. Former in-house roles at De Line Pictures (Warner Bros.) and Tom Hanks' Playtone. Legal research for the UN Special Rapporteur in Cultural Rights. Co-Executive Producer, 2025 Monolith Awards. Head of XR, Infinity Festival. Entertainment law faculty at UCLA, Chapman University, Musicians Institute, and University of La Verne.</div></div>
       <div class="team-card"><div class="team-role">Producer</div><div class="team-name">Doug Dearth</div><div class="team-bio">A multi-talented filmmaker whose journey began in front of the camera, working as an actor with esteemed directors including Stephen Frears, Bruce Beresford, Clint Eastwood, and Harold Ramis. His deep passion for music and its interplay with visual storytelling drew him behind the camera, where he collaborated with John Cusack's New Crime Productions on the music selections for <em>Grosse Pointe Blank</em> and went on to serve as Music Coordinator on the hit feature <em>High Fidelity</em>.</div></div>
       <div class="team-card"><div class="team-role">Producer</div><div class="team-name">Brett Kerr</div><div class="team-bio">Brett Kerr has over 15 years of experience in producing, directing, and writing motion pictures, television, music videos, and commercials. Brett has a strong background in film production, working his way up through the ranks of Indie filmmaking to much higher film budgets and thus gained a unique understanding of the process. He is well versed on all aspects of production and can take a project all the way from concept to distribution.</div></div>
-      <div class="team-card"><div class="team-role">Biographer · Stakeholder</div><div class="team-name">J. Robert Keating</div><div class="team-bio">Author of <em>Poteet Victory</em> (Atmosphere Press, 2022) — the primary source and IP foundation for the entire slate. Active collaborator in the development of all three projects.</div></div>
+      <div class="team-card"><div class="team-role">Consultant</div><div class="team-name">J. Robert Keating</div><div class="team-bio">Author of <em>Poteet Victory</em> (Atmosphere Press, 2022) — one of the sources for the IP related to the feature film concept <em>Victory</em>. Robert will serve as an active consultant on the development of the narrative feature film.</div></div>
       <div class="team-card"><div class="team-role">Subject · Principal</div><div class="team-name">Poteet Victory</div><div class="team-bio">Cherokee-Choctaw fine art painter, Santa Fe. First inductee, Semple Museum of Native American Art HOF. Smithsonian collection artist. Owner, Victory Contemporary gallery. Directly engaged in the development of all three projects on this slate.</div></div>
     </div>
   </div>
@@ -662,7 +679,7 @@ const obs = new IntersectionObserver((entries) => {
   });
 },{threshold:0.08});
 
-document.querySelectorAll('.tl-item,.pillar,.cast-card,.dir-item,.ep-item,.team-card,.voice-card,.honor-card,.struct-item,.gallery-item,.event-detail').forEach(el=>{
+document.querySelectorAll('.tl-item,.pillar,.comp-card,.ep-item,.team-card,.voice-card,.honor-card,.struct-item,.gallery-item,.event-detail').forEach(el=>{
   el.style.opacity='0';
   el.style.transform='translateY(18px)';
   el.style.transition='opacity 0.65s ease, transform 0.65s ease';
